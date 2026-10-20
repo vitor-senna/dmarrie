@@ -1,35 +1,17 @@
 /* Layout: loja de joias em coluna larga. Cabeçalho centrado no logo, menu com dropdown, hero em carrossel,
-   vitrines em trilhos deslizantes. O fio de costura (traço tracejado azul) é o divisor de toda a página. */
+   vitrines em trilhos deslizantes. O fio de costura (traço tracejado rosa) é o divisor de toda a página. */
 :root{
-  --paper:#F6F7F8; --surface:#FFFFFF; --fog:#ECEEF1; --line:#D8DBE0; --tile:#EEF0F3;
+  /* TEMA: fundo branco e detalhes em rosa escuro. Para voltar ao azul, use os valores antigos (#3E52B8 etc.). */
+  --paper:#FFFFFF; --surface:#FFFFFF; --fog:#F7F1F4; --line:#E6D9DF; --tile:#F8F3F5;
   --ink:#2B2D30; --ink-2:#5B5F66; --muted:#6B7078;
-  --thread:#3E52B8; --thread-soft:#E2E6F7; --thread-inv:#AEBAF3; --on-thread:#FFFFFF;
-  --bar-bg:#2B2D30; --bar-fg:#F6F7F8; --bar-accent:#AEBAF3;
-  --f1:#C5CEEE; --f2:#E1E4E9; --f3:#B5C0C9; --f4:#D6D1CC; --f5:#98A5D6; --f6:#454850;
-  --shadow:0 10px 30px rgba(30,32,36,.14);
+  --thread:#A31F57; --thread-soft:#F6E3EB; --thread-inv:#F1B1CB; --on-thread:#FFFFFF;
+  --bar-bg:#2B2D30; --bar-fg:#FFFFFF; --bar-accent:#F1B1CB;
+  --f1:#EBCBD9; --f2:#EFEAEC; --f3:#CDBFC6; --f4:#E3D3D0; --f5:#D08AAB; --f6:#4A3F45;
+  --shadow:0 10px 30px rgba(60,20,40,.14);
   --font-display:'Bodoni Moda',Georgia,'Times New Roman',serif;
   --font-body:'Hanken Grotesk',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
   --font-script:'Pinyon Script','Snell Roundhand','Brush Script MT',cursive;
-}
-@media (prefers-color-scheme: dark){
-  :root:not([data-theme="light"]){
-    --paper:#15161A; --surface:#1D1F23; --fog:#24262B; --line:#33363C; --tile:#25272C;
-    --ink:#ECEDEF; --ink-2:#A6ABB3; --muted:#8C919A;
-    --thread:#93A3F2; --thread-soft:#262B49; --thread-inv:#3E52B8; --on-thread:#12131A;
-    --bar-bg:#23264A; --bar-fg:#ECEDEF; --bar-accent:#93A3F2;
-    --f1:#4B5689; --f2:#5A5E67; --f3:#566570; --f4:#6A645F; --f5:#6F7EC0; --f6:#9A9EA6;
-    --shadow:0 10px 30px rgba(0,0,0,.5);
-    color-scheme:dark;
-  }
-}
-:root[data-theme="dark"]{
-  --paper:#15161A; --surface:#1D1F23; --fog:#24262B; --line:#33363C; --tile:#25272C;
-  --ink:#ECEDEF; --ink-2:#A6ABB3; --muted:#8C919A;
-  --thread:#93A3F2; --thread-soft:#262B49; --thread-inv:#3E52B8; --on-thread:#12131A;
-  --bar-bg:#23264A; --bar-fg:#ECEDEF; --bar-accent:#93A3F2;
-  --f1:#4B5689; --f2:#5A5E67; --f3:#566570; --f4:#6A645F; --f5:#6F7EC0; --f6:#9A9EA6;
-  --shadow:0 10px 30px rgba(0,0,0,.5);
-  color-scheme:dark;
+  color-scheme:light;
 }
 
 *,*::before,*::after{box-sizing:border-box}
