@@ -1,0 +1,376 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>D'marrie joias</title>
+<meta name="description" content="">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Hanken+Grotesk:wght@400;500;600;700&family=Pinyon+Script&display=swap">
+<link rel="stylesheet" href="style.css">
+<script src="config.js"></script>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <pattern id="pat-stripe" width="10" height="10" patternUnits="userSpaceOnUse" patternTransform="rotate(32)"><rect width="2.4" height="10" style="fill:var(--ink)" opacity=".16"/></pattern>
+
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/></symbol>
+    <symbol id="i-heart" viewBox="0 0 24 24"><path d="M12 20s-7-4.4-7-10a4.2 4.2 0 0 1 7-3 4.2 4.2 0 0 1 7 3c0 5.6-7 10-7 10z"/></symbol>
+    <symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="3.6"/><path d="M4.5 20c.8-4 3.8-6 7.5-6s6.7 2 7.5 6"/></symbol>
+    <symbol id="i-bag" viewBox="0 0 24 24"><path d="M5 8h14l-1 12H6L5 8z"/><path d="M9 8V6.5a3 3 0 0 1 6 0V8"/></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></symbol>
+    <symbol id="i-chev" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></symbol>
+    <symbol id="i-left" viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></symbol>
+    <symbol id="i-right" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></symbol>
+    <symbol id="i-truck" viewBox="0 0 24 24"><path d="M3 6h11v10H3zM14 9h4l3 3v4h-7"/><circle cx="7.5" cy="17.5" r="1.8"/><circle cx="17" cy="17.5" r="1.8"/></symbol>
+    <symbol id="i-card" viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M3 10h18M7 15h4"/></symbol>
+    <symbol id="i-percent" viewBox="0 0 24 24"><path d="M18 6L6 18"/><circle cx="7.5" cy="7.5" r="2"/><circle cx="16.5" cy="16.5" r="2"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6l7-3z"/><path d="M9 12l2.2 2.2L15.5 10"/></symbol>
+    <symbol id="i-whats" viewBox="0 0 24 24"><path d="M4 20l1.3-4.2A8 8 0 1 1 8.4 19L4 20z"/><path d="M9 9c0 3 3 6 6 6l1-1.5-2-1-1 .7c-.8-.4-1.6-1.2-2-2l.7-1-1-2L9 9z"/></symbol>
+    <symbol id="i-insta" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="4.5"/><circle cx="12" cy="12" r="3.6"/><circle cx="16.8" cy="7.2" r=".6"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5.5" width="18" height="13" rx="2"/><path d="M3.5 7l8.5 6 8.5-6"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></symbol>
+    <symbol id="i-help" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M9.6 9.6a2.4 2.4 0 1 1 3.4 2.2c-.7.4-1 .9-1 1.7M12 16.5v.1"/></symbol>
+    <symbol id="i-up" viewBox="0 0 24 24"><path d="M12 19V5M6 11l6-6 6 6"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+    <symbol id="i-minus" viewBox="0 0 24 24"><path d="M5 12h14"/></symbol>
+    <symbol id="i-trash" viewBox="0 0 24 24"><path d="M5 7h14M10 7V5h4v2M7 7l1 13h8l1-13"/></symbol>
+    <symbol id="i-star" viewBox="0 0 24 24"><path d="M12 3.5l2.6 5.4 5.9.8-4.3 4.1 1 5.9L12 16.9 6.8 19.7l1-5.9L3.5 9.7l5.9-.8L12 3.5z"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s-6-5.5-6-10a6 6 0 0 1 12 0c0 4.5-6 10-6 10z"/><circle cx="12" cy="11" r="2.2"/></symbol>
+
+    <symbol id="j-anel" viewBox="0 0 200 260">
+      <path class="gm" style="fill-rule:evenodd" d="M36 164 A64 64 0 1 0 164 164 A64 64 0 1 0 36 164 Z M52 164 A48 48 0 1 0 148 164 A48 48 0 1 0 52 164 Z"/>
+      <path class="gl" d="M62 140 A48 48 0 0 1 84 120"/>
+      <path class="gs" d="M80 38 H120 L140 62 L100 104 L60 62 Z"/>
+      <path class="gl" d="M60 62 H140 M80 38 L90 62 L100 104 M120 38 L110 62 L100 104 M90 62 L100 38 L110 62"/>
+      <circle class="gd" cx="62" cy="62" r="2.6"/><circle class="gd" cx="138" cy="62" r="2.6"/>
+    </symbol>
+    <symbol id="j-aliancas" viewBox="0 0 200 260">
+      <path class="gm" style="fill-rule:evenodd" d="M20 150 A52 52 0 1 0 124 150 A52 52 0 1 0 20 150 Z M34 150 A38 38 0 1 0 110 150 A38 38 0 1 0 34 150 Z"/>
+      <path class="gm" style="fill-rule:evenodd" d="M76 110 A52 52 0 1 0 180 110 A52 52 0 1 0 76 110 Z M90 110 A38 38 0 1 0 166 110 A38 38 0 1 0 90 110 Z"/>
+      <path class="gl" d="M40 126 A38 38 0 0 1 56 112 M146 86 A38 38 0 0 1 160 100"/>
+      <circle class="gd" cx="128" cy="58" r="2.8"/>
+    </symbol>
+    <symbol id="j-brinco" viewBox="0 0 200 260">
+      <g id="j-brinco-1">
+        <circle class="gm" cx="56" cy="44" r="8"/>
+        <path class="gl" d="M56 52 V74"/>
+        <path class="gm" d="M56 72 C64 104 86 124 86 156 A30 30 0 0 1 26 156 C26 124 48 104 56 72 Z"/>
+        <circle class="gs" cx="56" cy="156" r="14"/>
+        <path class="gl" d="M40 132 Q46 116 52 106"/>
+      </g>
+      <use href="#j-brinco-1" x="88"/>
+    </symbol>
+    <symbol id="j-argola" viewBox="0 0 200 260">
+      <g id="j-argola-1">
+        <path class="gm" style="fill-rule:evenodd" d="M10 150 A44 44 0 1 0 98 150 A44 44 0 1 0 10 150 Z M22 150 A32 32 0 1 0 86 150 A32 32 0 1 0 22 150 Z"/>
+        <circle class="gd" cx="54" cy="104" r="3.2"/>
+        <path class="gl" d="M24 128 A32 32 0 0 1 38 112"/>
+      </g>
+      <use href="#j-argola-1" x="92"/>
+    </symbol>
+    <symbol id="j-colar" viewBox="0 0 200 260">
+      <path class="gl" style="stroke-width:3.4;stroke-dasharray:6 4" d="M28 24 C30 120 66 168 100 168 C134 168 170 120 172 24"/>
+      <path class="gl" style="stroke-width:3.4;stroke-dasharray:6 4" d="M52 24 C54 100 78 138 100 138 C122 138 146 100 148 24"/>
+      <circle class="gm" cx="100" cy="176" r="7"/>
+      <path class="gm" d="M100 184 C108 206 128 212 128 230 A28 28 0 0 1 72 230 C72 212 92 206 100 184 Z" transform="translate(0 4) scale(1 .96)"/>
+      <circle class="gs" cx="100" cy="226" r="11"/>
+    </symbol>
+    <symbol id="j-perolas" viewBox="0 0 200 260">
+      <g transform="translate(0 36)"><circle class="gm" cx="24.0" cy="50.0" r="7.0"/><circle class="gd" cx="21.6" cy="47.5" r="1.4"/><circle class="gm" cx="33.9" cy="74.6" r="8.2"/><circle class="gd" cx="31.0" cy="71.7" r="1.4"/><circle class="gm" cx="45.3" cy="98.6" r="9.4"/><circle class="gd" cx="42.0" cy="95.4" r="1.4"/><circle class="gm" cx="59.0" cy="121.5" r="10.2"/><circle class="gd" cx="55.4" cy="118.0" r="1.4"/><circle class="gm" cx="76.4" cy="141.3" r="10.8"/><circle class="gd" cx="72.7" cy="137.5" r="1.4"/><circle class="gm" cx="100.4" cy="151.0" r="11.0"/><circle class="gd" cx="96.5" cy="147.1" r="1.4"/><circle class="gm" cx="123.9" cy="141.0" r="10.8"/><circle class="gd" cx="120.2" cy="137.2" r="1.4"/><circle class="gm" cx="141.4" cy="121.0" r="10.2"/><circle class="gd" cx="137.8" cy="117.4" r="1.4"/><circle class="gm" cx="155.1" cy="97.9" r="9.4"/><circle class="gd" cx="151.8" cy="94.6" r="1.4"/><circle class="gm" cx="166.5" cy="73.7" r="8.2"/><circle class="gd" cx="163.6" cy="70.8" r="1.4"/><circle class="gm" cx="176.0" cy="50.0" r="7.0"/><circle class="gd" cx="173.6" cy="47.5" r="1.4"/></g>
+      <path class="gs" d="M100 202 L113 216 L100 240 L87 216 Z"/>
+      <path class="gl" d="M87 216 H113 M100 202 V240"/>
+    </symbol>
+    <symbol id="j-pulseira" viewBox="0 0 200 260">
+      <path class="gm" style="fill-rule:evenodd" d="M20 136 A80 62 0 1 0 180 136 A80 62 0 1 0 20 136 Z M38 136 A62 44 0 1 0 162 136 A62 44 0 1 0 38 136 Z"/>
+      <path class="gl" d="M36 118 A80 62 0 0 1 80 84"/>
+      <circle class="gs" cx="100" cy="190" r="9"/>
+      <circle class="gd" cx="56" cy="178" r="2.6"/><circle class="gd" cx="144" cy="178" r="2.6"/><circle class="gd" cx="72" cy="184" r="2.6"/><circle class="gd" cx="128" cy="184" r="2.6"/>
+    </symbol>
+    <symbol id="j-pingente" viewBox="0 0 200 260">
+      <path class="gl" style="stroke-width:3.4;stroke-dasharray:6 4" d="M30 20 L100 112 L170 20"/>
+      <circle class="gm" cx="100" cy="120" r="8"/>
+      <path class="gl" d="M100 128 V154"/>
+      <path class="gm" d="M100 224 C36 186 50 130 100 158 C150 130 164 186 100 224 Z"/>
+      <path class="gs" d="M100 196 C74 180 82 166 100 176 C118 166 126 180 100 196 Z"/>
+      <path class="gl" d="M62 160 Q70 148 82 150"/>
+    </symbol>
+  </defs>
+</svg>
+
+<a class="skip" href="#main">Ir para o conteúdo</a>
+<div id="top"></div>
+
+<div class="announce"><div class="wrap" id="announce"></div></div>
+
+<header class="hdr" id="hdr">
+  <div class="wrap hdr-main">
+    <button class="icon-btn menu-btn" type="button" data-open="menu" aria-label="Abrir menu"><svg class="ic" aria-hidden="true"><use href="#i-menu"/></svg></button>
+    <div class="hdr-left">
+      <a class="help" href="#"><svg class="ic" aria-hidden="true"><use href="#i-help"/></svg><span>Central de<br><b>Atendimento</b></span></a>
+      <nav class="hdr-links" aria-label="Ajuda" id="hdrLinks"></nav>
+    </div>
+    <a class="brand" href="#top" id="brand" aria-label="Voltar ao topo"><span class="logo-mark" aria-hidden="true"></span></a>
+    <div class="hdr-right">
+      <button class="icon-btn" type="button" data-search aria-label="Buscar" aria-expanded="false"><svg class="ic" aria-hidden="true"><use href="#i-search"/></svg></button>
+      <button class="icon-btn hide-m" type="button" data-wishlist aria-label="Favoritos"><svg class="ic" aria-hidden="true"><use href="#i-heart"/></svg><span class="badge wish-count" hidden>0</span></button>
+      <button class="icon-btn hide-m" type="button" data-open="login" aria-label="Minha conta"><svg class="ic" aria-hidden="true"><use href="#i-user"/></svg></button>
+      <button class="icon-btn" type="button" data-open="cart" aria-label="Abrir sacola"><svg class="ic" aria-hidden="true"><use href="#i-bag"/></svg><span class="badge cart-count" hidden>0</span></button>
+    </div>
+  </div>
+  <div class="search-panel" id="searchPanel">
+    <div class="wrap">
+      <form class="search-form" id="searchForm" role="search">
+        <svg class="ic" aria-hidden="true"><use href="#i-search"/></svg>
+        <label class="sr" for="q">Buscar na loja</label>
+        <input id="q" type="search" placeholder="Olá, o que você procura?" autocomplete="off" spellcheck="false">
+        <button class="icon-btn" type="button" data-search aria-label="Fechar busca"><svg class="ic" aria-hidden="true"><use href="#i-close"/></svg></button>
+      </form>
+      <div id="suggest"></div>
+    </div>
+  </div>
+</header>
+<nav class="nav" aria-label="Categorias"><div class="wrap"><ul class="nav-list" id="navList"></ul></div></nav>
+
+<main id="main">
+  <h1 class="sr" id="h1"></h1>
+
+  <section class="hero" id="hero" aria-roledescription="carrossel" aria-label="Destaques da loja" data-tone="">
+    <div class="hero-track" id="heroTrack"></div>
+    <button class="hero-arrow prev" type="button" aria-label="Slide anterior"><svg class="ic" aria-hidden="true"><use href="#i-left"/></svg></button>
+    <button class="hero-arrow next" type="button" aria-label="Próximo slide"><svg class="ic" aria-hidden="true"><use href="#i-right"/></svg></button>
+    <div class="hero-dots" id="heroDots"></div>
+  </section>
+
+  <section class="benefits" aria-label="Vantagens da loja">
+    <div class="wrap"><ul id="benefits"></ul></div>
+  </section>
+
+  <section class="sec" id="lancamentos">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 class="sec-title"><i class="st" aria-hidden="true"></i><span class="t" data-t="novos"></span><i class="st" aria-hidden="true"></i></h2>
+        <p class="sec-sub" data-s="novos"></p>
+      </div>
+      <div class="car car--prod" id="carNew">
+        <button class="car-arrow prev" type="button" aria-label="Anteriores"><svg class="ic" aria-hidden="true"><use href="#i-left"/></svg></button>
+        <div class="car-track" id="trkNew" tabindex="0" aria-label="Lançamentos, deslize para o lado"></div>
+        <button class="car-arrow next" type="button" aria-label="Próximos"><svg class="ic" aria-hidden="true"><use href="#i-right"/></svg></button>
+        <div class="car-dots"></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="loop" aria-hidden="true"><div class="loop-track" id="loopTrack"></div></div>
+
+  <section class="sec" id="best-sellers">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 class="sec-title"><i class="st" aria-hidden="true"></i><span class="t" data-t="top"></span><i class="st" aria-hidden="true"></i></h2>
+        <p class="sec-sub" data-s="top"></p>
+      </div>
+      <div class="car car--prod" id="carBest">
+        <button class="car-arrow prev" type="button" aria-label="Anteriores"><svg class="ic" aria-hidden="true"><use href="#i-left"/></svg></button>
+        <div class="car-track" id="trkBest" tabindex="0" aria-label="Mais vendidos, deslize para o lado"></div>
+        <button class="car-arrow next" type="button" aria-label="Próximos"><svg class="ic" aria-hidden="true"><use href="#i-right"/></svg></button>
+        <div class="car-dots"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="avaliacoes">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 class="sec-title"><i class="st" aria-hidden="true"></i><span class="t" data-t="avaliacoes"></span><i class="st" aria-hidden="true"></i></h2>
+        <p class="sec-sub" data-s="avaliacoes"></p>
+      </div>
+      <div class="car car--rev" id="carRev">
+        <button class="car-arrow prev" type="button" aria-label="Anteriores"><svg class="ic" aria-hidden="true"><use href="#i-left"/></svg></button>
+        <div class="car-track" id="trkRev" tabindex="0" aria-label="Depoimentos, deslize para o lado"></div>
+        <button class="car-arrow next" type="button" aria-label="Próximos"><svg class="ic" aria-hidden="true"><use href="#i-right"/></svg></button>
+        <div class="car-dots"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="news" aria-labelledby="newsT">
+    <div class="wrap">
+      <h2 id="newsT" data-t="newsletter"></h2>
+      <p data-s="newsletter"></p>
+      <form class="news-form" id="newsForm">
+        <label class="sr" for="newsMail">Seu e-mail</label>
+        <input id="newsMail" type="email" required placeholder="Digite seu e-mail aqui" autocomplete="email">
+        <button type="submit"><span id="newsBtn"></span> <svg class="ic" aria-hidden="true"><use href="#i-right"/></svg></button>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer class="ft">
+  <div class="wrap">
+    <div class="ft-grid">
+      <div class="ft-brand">
+        <span class="logo-mark" role="img" id="ftLogo"></span>
+        <p id="ftAbout"></p>
+        <a class="soc" href="#" id="ftInsta" target="_blank" rel="noopener noreferrer" aria-label="Instagram da loja"><svg class="ic" aria-hidden="true"><use href="#i-insta"/></svg></a>
+      </div>
+      <div id="ftCols1"></div>
+      <div id="ftCols2"></div>
+      <div>
+        <details open><summary>Atendimento<svg class="ic" aria-hidden="true"><use href="#i-chev"/></svg></summary>
+          <ul>
+            <li><svg class="ic" aria-hidden="true"><use href="#i-whats"/></svg><span>WhatsApp: <a class="wa-link" id="ftWa" href="#" target="_blank" rel="noopener noreferrer"><strong></strong></a></span></li>
+            <li><svg class="ic" aria-hidden="true"><use href="#i-mail"/></svg><span>E-mail: <strong id="ftMail"></strong></span></li>
+            <li><svg class="ic" aria-hidden="true"><use href="#i-clock"/></svg><span id="ftHours"></span></li>
+          </ul>
+        </details>
+      </div>
+    </div>
+    <div class="ft-row">
+      <div><h3>Formas de pagamento</h3><div class="pay" id="pay"></div></div>
+      <div><h3>Segurança</h3><div class="seals" id="seals"></div></div>
+    </div>
+    <p class="copy" id="copy"></p>
+  </div>
+</footer>
+
+<!-- elementos fixos -->
+<div class="ig" id="ig">
+  <div class="ig-card" id="igCard" role="dialog" aria-label="Instagram da loja">
+    <div class="ig-head">
+      <span class="ig-av"><span class="logo-d" aria-hidden="true"></span></span>
+      <span><b id="igHandle"></b><small id="igCap"></small></span>
+      <button class="icon-btn" type="button" id="igClose" aria-label="Fechar"><svg class="ic" aria-hidden="true"><use href="#i-close"/></svg></button>
+    </div>
+    <p id="igText"></p>
+    <div class="ig-grid" id="igGrid" aria-hidden="true"></div>
+    <a class="btn-solid" id="igLink" href="#" target="_blank" rel="noopener noreferrer"></a>
+  </div>
+  <button class="ig-btn" type="button" id="igBtn" aria-expanded="false" aria-controls="igCard" aria-label="Abrir Instagram da loja"><span class="logo-d" aria-hidden="true"></span></button>
+</div>
+
+<div class="fab-stack">
+  <button class="fab up" type="button" id="toTop" aria-label="Voltar ao topo"><svg class="ic" aria-hidden="true"><use href="#i-up"/></svg></button>
+  <a class="fab wa" id="waFab" href="#" target="_blank" rel="noopener noreferrer" aria-label="Falar no WhatsApp"><svg class="ic" aria-hidden="true"><use href="#i-whats"/></svg></a>
+</div>
+
+<nav class="bbar" aria-label="Atalhos">
+  <button type="button" data-open="menu"><svg class="ic" aria-hidden="true"><use href="#i-menu"/></svg><span>Todos</span></button>
+  <button type="button" data-search><svg class="ic" aria-hidden="true"><use href="#i-search"/></svg><span>Busca</span></button>
+  <button type="button" data-open="cart"><svg class="ic" aria-hidden="true"><use href="#i-bag"/></svg><span class="badge cart-count" hidden>0</span><span>Sacola</span></button>
+  <button type="button" data-wishlist><svg class="ic" aria-hidden="true"><use href="#i-heart"/></svg><span class="badge wish-count" hidden>0</span><span>Desejos</span></button>
+  <button type="button" data-open="login"><svg class="ic" aria-hidden="true"><use href="#i-user"/></svg><span>Conta</span></button>
+</nav>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<!-- menu mobile -->
+<div class="layer" id="menu" hidden>
+  <div class="scrim" data-close></div>
+  <aside class="panel drawer" role="dialog" aria-modal="true" aria-label="Menu">
+    <div class="dr-head"><span class="logo-mark" aria-hidden="true"></span><button class="icon-btn" type="button" data-close aria-label="Fechar menu"><svg class="ic" aria-hidden="true"><use href="#i-close"/></svg></button></div>
+    <div class="tabs" role="tablist">
+      <button type="button" role="tab" aria-selected="true" data-tab="cats">Categorias</button>
+      <button type="button" role="tab" aria-selected="false" data-tab="info">Menu</button>
+    </div>
+    <div id="tab-cats" role="tabpanel"><ul class="acc" id="accList"></ul></div>
+    <div id="tab-info" role="tabpanel" hidden>
+      <div class="info-list">
+        <a href="#" data-open="login">Entrar / Cadastrar</a>
+        <a href="#">Trocas e devoluções</a>
+        <a href="#">Guia de aros</a>
+        <a href="#">Regras para o frete grátis</a>
+      </div>
+      <p class="info-h">Rastrear pedido</p>
+      <form class="track-form" id="trackForm"><label class="sr" for="trackIn">Código de rastreio</label><input id="trackIn" type="text" placeholder="Código de rastreio" autocomplete="off"><button type="submit">Buscar</button></form>
+      <p class="info-h">Atendimento</p>
+      <div class="contact-box">
+        <span>WhatsApp: <a class="wa-link" id="mnWa" href="#" target="_blank" rel="noopener noreferrer"><strong></strong></a></span>
+        <span>E-mail: <strong id="mnMail"></strong></span>
+        <span id="mnHours"></span>
+      </div>
+    </div>
+  </aside>
+</div>
+
+<!-- sacola -->
+<div class="layer right" id="cart" hidden>
+  <div class="scrim" data-close></div>
+  <aside class="panel drawer" role="dialog" aria-modal="true" aria-label="Sacola de compras">
+    <div class="dr-head"><h2 class="dr-title">Sua sacola</h2><button class="icon-btn" type="button" data-close aria-label="Fechar sacola"><svg class="ic" aria-hidden="true"><use href="#i-close"/></svg></button></div>
+    <div class="ship"><p id="shipMsg"></p><div class="ship-bar"><i id="shipFill"></i></div></div>
+    <ul class="cart-list" id="cartList"></ul>
+    <div class="cart-empty" id="cartEmpty"><p>Sua sacola está vazia.</p><a class="btn-line" href="#lancamentos">Ver lançamentos</a></div>
+    <div class="cart-foot" id="cartFoot">
+      <div class="row"><span>Subtotal</span><strong id="cartSub"></strong></div>
+      <p class="note">Frete e cupom são calculados no checkout.</p>
+      <button class="btn-solid" type="button" id="checkout">Finalizar compra</button>
+    </div>
+  </aside>
+</div>
+
+<!-- uma espiadinha -->
+<div class="layer" id="qv" hidden>
+  <div class="scrim" data-close></div>
+  <div class="panel modal qv" role="dialog" aria-modal="true" aria-labelledby="qvTitle">
+    <button class="icon-btn modal-x" type="button" data-close aria-label="Fechar"><svg class="ic" aria-hidden="true"><use href="#i-close"/></svg></button>
+    <div class="qv-art" id="qvArt"></div>
+    <div class="qv-body">
+      <p class="qv-kicker">Uma espiadinha</p>
+      <h2 class="qv-title" id="qvTitle"></h2>
+      <p class="code" id="qvCode"></p>
+      <p class="price" id="qvPrice"></p>
+      <p class="inst" id="qvInst"></p>
+      <p class="pix" id="qvPix"></p>
+      <div id="qvSizesWrap"><p class="lbl" id="qvSizeLbl">Tamanho</p><div class="qv-sizes" id="qvSizes" role="group" aria-labelledby="qvSizeLbl"></div></div>
+      <p class="qv-msg" id="qvMsg" role="status"></p>
+      <div class="qv-cta">
+        <button class="btn-solid" type="button" id="qvAdd">Adicionar à sacola</button>
+        <button class="wish" type="button" id="qvWish" aria-pressed="false"><svg class="ic" aria-hidden="true"><use href="#i-heart"/></svg>Favoritar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- login -->
+<div class="layer" id="login" hidden>
+  <div class="scrim" data-close></div>
+  <div class="panel modal sm" role="dialog" aria-modal="true" aria-labelledby="loginT">
+    <button class="icon-btn modal-x" type="button" data-close aria-label="Fechar"><svg class="ic" aria-hidden="true"><use href="#i-close"/></svg></button>
+    <h2 id="loginT">Entrar</h2>
+    <p class="lead">Acesse seus pedidos e favoritos.</p>
+    <form id="loginForm">
+      <div class="fld"><label for="lgMail">E-mail</label><input id="lgMail" type="email" required autocomplete="email"></div>
+      <div class="fld"><label for="lgPass">Senha</label><input id="lgPass" type="password" required autocomplete="current-password"></div>
+      <button class="btn-solid" type="submit">Entrar</button>
+    </form>
+  </div>
+</div>
+
+<!-- cupom -->
+<div class="layer" id="news" hidden>
+  <div class="scrim" data-close></div>
+  <div class="panel modal sm" role="dialog" aria-modal="true" aria-labelledby="popT">
+    <button class="icon-btn modal-x" type="button" data-close aria-label="Fechar"><svg class="ic" aria-hidden="true"><use href="#i-close"/></svg></button>
+    <div id="popForm">
+      <h2 id="popT"></h2>
+      <p class="lead" id="popLead"></p>
+      <form id="popFormEl">
+        <div class="fld"><label for="popMail">E-mail</label><input id="popMail" type="email" required autocomplete="email"></div>
+        <button class="btn-solid" type="submit">Quero meu cupom</button>
+      </form>
+    </div>
+    <div id="popDone" hidden>
+      <h2>Cupom liberado</h2>
+      <p class="lead">Use o código abaixo na sacola.</p>
+      <div class="coupon"><span id="popCode"></span></div>
+      <button class="btn-solid" type="button" id="copyCoupon">Copiar cupom</button>
+    </div>
+  </div>
+</div>
+<script src="app.js"></script>
+</body>
+</html>
