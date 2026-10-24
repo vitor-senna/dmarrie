@@ -188,6 +188,8 @@ function gallery(p) {
     '</div>';
 }
 function galIndex(track) {
+  const gal = track.parentElement;
+  if (gal.classList.contains('is-3d')) return Number(gal.dataset.idx) || 0;
   return Math.round(track.scrollLeft / (track.clientWidth || 1));
 }
 function galDots(gal, i) {
@@ -197,8 +199,68 @@ function galGo(gal, i) {
   const track = $('.gal-track', gal);
   const n = track.children.length;
   const to = (i + n) % n;                       /* passa da última para a primeira e vice-versa */
-  track.scrollTo({ left: to * track.clientWidth, behavior: reduceMotion ? 'auto' : 'smooth' });
+  if (gal.classList.contains('is-3d')) spin(gal, i - galIndex(track));
+  else track.scrollTo({ left: to * track.clientWidth, behavior: reduceMotion ? 'auto' : 'smooth' });
   galDots(gal, to);
+}
+
+/* ---------- roleta 3D ----------
+   Liga o modo .is-3d em cada carrossel: as fotos viram faces de um prisma e cada passo gira o prisma
+   360/n graus. O contador de passos não volta a zero, assim a roleta segue girando no mesmo sentido
+   ao passar da última foto para a primeira. Sem suporte a 3D, fica o carrossel de rolagem.          */
+const has3d = window.CSS && CSS.supports && CSS.supports('transform-style', 'preserve-3d');
+const galSize = window.ResizeObserver ? new ResizeObserver(list => list.forEach(e => galRadius(e.target))) : null;
+
+function galRadius(gal) {
+  const n = $('.gal-track', gal).children.length;
+  const w = gal.clientWidth;
+  /* raio do prisma: w / (2·tan(π/n)); com 2 fotos as faces ficam costas com costas (giro de 180°) */
+  gal.style.setProperty('--r', (n > 2 ? w / (2 * Math.tan(Math.PI / n)) : 0).toFixed(1) + 'px');
+}
+function spin(gal, delta) {
+  const slides = $('.gal-track', gal).children;
+  const n = slides.length;
+  if (n < 2 || !delta) return;
+  /* pelos pontinhos, gira pelo caminho mais curto */
+  if (Math.abs(delta) > n / 2) delta -= Math.sign(delta) * n;
+  const turns = (Number(gal.dataset.turns) || 0) + delta;
+  const idx = ((turns % n) + n) % n;
+  gal.dataset.turns = turns;
+  gal.dataset.idx = idx;
+  gal.style.setProperty('--a', String(-turns * 360 / n));
+  Array.from(slides).forEach((s, k) => {
+    s.classList.toggle('is-on', k === idx);
+    s.setAttribute('aria-hidden', String(k !== idx));
+  });
+}
+function galInit(scope) {
+  if (!has3d) return;
+  $$('[data-gal]', scope).forEach(gal => {
+    const slides = $('.gal-track', gal).children;
+    const n = slides.length;
+    if (n < 2 || gal.classList.contains('is-3d')) return;
+    gal.style.setProperty('--step', String(360 / n));
+    Array.from(slides).forEach((s, k) => {
+      s.style.setProperty('--i', k);
+      s.classList.toggle('is-on', k === 0);
+      s.setAttribute('aria-hidden', String(k !== 0));
+    });
+    gal.dataset.turns = 0;
+    gal.dataset.idx = 0;
+    gal.classList.add('is-3d');
+    galRadius(gal);
+    if (galSize) galSize.observe(gal); else window.addEventListener('resize', () => galRadius(gal));
+
+    /* arrastar o dedo para o lado gira a roleta */
+    let x0 = null, y0 = 0;
+    gal.addEventListener('touchstart', e => { x0 = e.touches[0].clientX; y0 = e.touches[0].clientY; }, { passive: true });
+    gal.addEventListener('touchend', e => {
+      if (x0 === null) return;
+      const dx = e.changedTouches[0].clientX - x0, dy = e.changedTouches[0].clientY - y0;
+      x0 = null;
+      if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy)) galGo(gal, galIndex($('.gal-track', gal)) + (dx < 0 ? 1 : -1));
+    }, { passive: true });
+  });
 }
 /* a rolagem não "borbulha", por isso a escuta é feita na fase de captura, uma vez para todas as faixas */
 document.addEventListener('scroll', e => {
@@ -232,6 +294,7 @@ function card(p) {
 /* 4 produtos de cada seção na página principal */
 setAll('[data-products]', grid => {
   grid.innerHTML = P.filter(p => p.secao === grid.dataset.products).slice(0, 4).map(card).join('');
+  galInit(grid);
 });
 
 /* ---------- faixa em loop, depoimentos e Instagram ---------- */
@@ -442,6 +505,7 @@ function openQuick(id) {
   if (!p) return;
   quick = { id, size: '' };
   $('#qvArt').innerHTML = fotos(p).length ? gallery(p) : drawing(p.forma, p.tom);
+  galInit($('#qvArt'));
   $('#qvTitle').textContent = p.nome;
   $('#qvCode').textContent = meta(p);
   $('#qvPrice').textContent = brl(p.preco);
