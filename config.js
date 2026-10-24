@@ -116,13 +116,15 @@ window.DM_CONFIG = {
   buscasPopulares: ["anel", "brinco", "colar", "aliança", "pérola"],
 
   /* ---------- 6. PRODUTOS ----------
-     secao: 'novos' aparece em Lançamentos, 'top' aparece em Mais vendidos
+     secao: 'novos' aparece em Lançamentos, 'top' aparece em Mais vendidos (os 4 primeiros de cada seção vão para a página principal)
      tom / tom2: cor da ilustração e cor ao passar o mouse
-     imagem / imagem2: foto real (opcional)  ·  opcoes: lista de aros/medidas (vazio = sem seleção)
+     imagem / imagem2: foto real (opcional)  ·  imagens: lista de fotos do carrossel do cartão (ex.: "products/carrosel_01/foto.jpg")
+     opcoes: lista de aros/medidas (vazio = sem seleção)
      rotuloOpcao: nome da medida ("Aro", "Comprimento")  ·  material: aparece junto ao código                  */
   produtos: [
     { id: 1,  secao: "novos", nome: "Anel solitário Aurora",     preco: 289, forma: "anel",     tom: "f1", tom2: "f5", cat: "Anéis",     codigo: "AN 1021", material: "Prata 925",       etiqueta: "Lançamento", rotuloOpcao: "Aro", opcoes: ["12","14","16","18","20"], imagem: "", imagem2: "" },
-    { id: 2,  secao: "novos", nome: "Brincos gota Lia",          preco: 219, forma: "brinco",   tom: "f2", tom2: "f3", cat: "Brincos",   codigo: "BR 2210", material: "Banho de ouro",   imagem: "", imagem2: "" },
+    { id: 2,  secao: "novos", nome: "Brincos gota Lia",          preco: 219, forma: "brinco",   tom: "f2", tom2: "f3", cat: "Brincos",   codigo: "BR 2210", material: "Banho de ouro",   imagem: "", imagem2: "",
+      imagens: ["products/carrosel_01/dm-04-img.jpeg", "products/carrosel_01/brunnete_brinco01_perto.jpg", "products/carrosel_01/brunnete_brinco01_longe.jpg"] },
     { id: 3,  secao: "novos", nome: "Colar ponto de luz Helena", preco: 259, forma: "colar",    tom: "f3", tom2: "f1", cat: "Colares",   codigo: "CO 3107", material: "Prata 925",       rotuloOpcao: "Comprimento", opcoes: ["40 cm","45 cm","50 cm"], imagem: "", imagem2: "" },
     { id: 4,  secao: "novos", nome: "Bracelete liso Vera",       preco: 329, forma: "pulseira", tom: "f6", tom2: "f3", cat: "Pulseiras", codigo: "PU 4012", material: "Banho de ouro",   etiqueta: "Lançamento", rotuloOpcao: "Tamanho", opcoes: ["P","M","G"], imagem: "", imagem2: "" },
     { id: 5,  secao: "novos", nome: "Argolas médias Noor",       preco: 189, forma: "argola",   tom: "f4", tom2: "f2", cat: "Brincos",   codigo: "BR 5033", material: "Banho de ouro",   imagem: "", imagem2: "" },

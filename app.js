@@ -68,7 +68,37 @@ function art(p,v){
     if(p.imagem&&!p.imagem2) return '';
     return pic(p.forma,p.tom2||p.tom,p.imagem2,'b',p.nome);
   }
-  return pic(p.forma,p.tom,p.imagem,'a',p.nome);
+  return pic(p.forma,p.tom,p.imagem||(p.imagens&&p.imagens[0]),'a',p.nome);
+}
+/* faces da roleta: fotos do produto ou, sem foto, variações da ilustração */
+function faces(p){
+  const ph=(src,i,n)=>'<img class="ph" src="'+esc(src)+'" alt="'+esc(p.nome)+(n>1?', foto '+(i+1)+' de '+n:'')+'" loading="lazy" decoding="async">';
+  const list=(p.imagens&&p.imagens.length)?p.imagens:[p.imagem,p.imagem2].filter(Boolean);
+  if(list.length) return list.map((s,i)=>ph(s,i,list.length));
+  const t2=p.tom2||p.tom;
+  return [pic(p.forma,p.tom,'','a',p.nome),pic(p.forma,t2,'','b',p.nome),pic(p.forma,t2,'','a',p.nome)];
+}
+function roulette(p){
+  const f=faces(p), n=f.length;
+  /* raio do prisma em larguras do cartão: 1 / (2·tan(π/n)); com 2 faces vira um giro de 180° */
+  const k=n>2?1/(2*Math.tan(Math.PI/n)):0;
+  return '<div class="rl" data-n="'+n+'" data-step="0" style="--n:'+n+';--k:'+k.toFixed(4)+';--a:0">'+
+    '<div class="rl-ring">'+f.map((h,i)=>'<div class="rl-face'+(i?'':' is-on')+'" style="--i:'+i+'"'+(i?' aria-hidden="true"':'')+'>'+h+'</div>').join('')+'</div>'+
+  '</div>';
+}
+function rlControls(p,n){
+  if(n<2) return '';
+  return '<button type="button" class="rl-btn prev" data-rl="-1" aria-label="Foto anterior de '+esc(p.nome)+'">'+ic('left')+'</button>'+
+    '<button type="button" class="rl-btn next" data-rl="1" aria-label="Próxima foto de '+esc(p.nome)+'">'+ic('right')+'</button>'+
+    '<div class="rl-pips" aria-hidden="true">'+Array.from({length:n},(_,i)=>'<i'+(i?'':' class="on"')+'></i>').join('')+'</div>';
+}
+function spin(media,dir){
+  const rl=$('.rl',media); if(!rl) return;
+  const n=+rl.dataset.n, step=+rl.dataset.step+dir, cur=((step%n)+n)%n;
+  rl.dataset.step=step;
+  rl.style.setProperty('--a',String(-step*360/n));
+  $$('.rl-face',rl).forEach((f,i)=>{f.classList.toggle('is-on',i===cur);i===cur?f.removeAttribute('aria-hidden'):f.setAttribute('aria-hidden','true');});
+  $$('.rl-pips i',media).forEach((d,i)=>d.classList.toggle('on',i===cur));
 }
 const optLabel=p=>p.rotuloOpcao||'Tamanho';
 const hasOpt=p=>Array.isArray(p.opcoes)&&p.opcoes.length>0;
@@ -98,9 +128,11 @@ $$('[data-tab]').forEach(b=>b.addEventListener('click',()=>{
 function card(p){
   const opts=hasOpt(p)?'<div class="sizes" aria-label="'+esc(optLabel(p))+' disponíveis">'+p.opcoes.map(s=>'<span>'+esc(s)+'</span>').join('')+'</div>':'';
   const pl=priceLines(p);
-  return '<article class="card'+(p.imagem&&!p.imagem2?' no-alt':'')+'" data-id="'+p.id+'">'+
+  const n=faces(p).length;
+  return '<article class="card" data-id="'+p.id+'">'+
     '<div class="media">'+
-      '<a class="media-link" href="#" data-qv="'+p.id+'" aria-label="Ver '+esc(p.nome)+'">'+art(p,'a')+art(p,'b')+'</a>'+
+      '<a class="media-link" href="#" data-qv="'+p.id+'" aria-label="Ver '+esc(p.nome)+'">'+roulette(p)+'</a>'+
+      rlControls(p,n)+
       (p.etiqueta?'<span class="tag">'+esc(p.etiqueta)+'</span>':'')+
       '<button type="button" class="wish" data-id="'+p.id+'" aria-pressed="false" aria-label="Favoritar '+esc(p.nome)+'">'+ic('heart')+'</button>'+
       '<div class="actions"><button type="button" class="btn-mini" data-act="look">Olhar</button><button type="button" class="btn-mini solid" data-act="buy">Comprar</button></div>'+
@@ -114,8 +146,19 @@ function card(p){
     '<p class="more"><a href="#">+ '+esc(p.cat)+'</a></p>'+
   '</article>';
 }
-$('#trkNew').innerHTML=P.filter(p=>p.secao==='novos').map(card).join('');
-$('#trkBest').innerHTML=P.filter(p=>p.secao==='top').map(card).join('');
+$('#trkNew').innerHTML=P.filter(p=>p.secao==='novos').slice(0,4).map(card).join('');
+$('#trkBest').innerHTML=P.filter(p=>p.secao==='top').slice(0,4).map(card).join('');
+/* arrastar para o lado gira a roleta no celular */
+$$('.grid4 .media').forEach(m=>{
+  if(!$('.rl-btn',m)) return;
+  let x0=null;
+  m.addEventListener('touchstart',e=>{x0=e.touches[0].clientX;},{passive:true});
+  m.addEventListener('touchend',e=>{
+    if(x0===null) return;
+    const dx=e.changedTouches[0].clientX-x0; x0=null;
+    if(Math.abs(dx)>40)spin(m,dx<0?1:-1);
+  },{passive:true});
+});
 $('#trkRev').innerHTML=R.map(r=>'<article class="rev"><div class="stars" role="img" aria-label="5 de 5">'+STARS+'</div>'+(r.produto?'<p class="rev-p">'+esc(r.produto)+'</p>':'')+'<p class="rev-t">'+esc(r.texto)+'</p><p class="rev-n">'+esc(r.nome)+'</p></article>').join('');
 
 /* faixa em loop */
@@ -319,8 +362,6 @@ function initCar(root,auto){
     setInterval(()=>{if(!paused&&pages>1) go(page+1>=pages?0:page+1);},5000);
   }
 }
-initCar($('#carNew'));
-initCar($('#carBest'));
 initCar($('#carRev'),true);
 
 /* hero */
@@ -394,6 +435,7 @@ $('#copyCoupon').addEventListener('click',()=>{
 document.addEventListener('click',e=>{
   const t=e.target; let el;
   if(hdr.classList.contains('search-open')&&!t.closest('#hdr')&&!t.closest('[data-search]')) closeSearch();
+  if((el=t.closest('[data-rl]'))){spin(el.closest('.media'),+el.dataset.rl);return;}
   if((el=t.closest('[data-term]'))){qIn.value=el.dataset.term;renderSuggest();qIn.focus();return;}
   if((el=t.closest('[data-qv]'))){e.preventDefault();closeSearch();openQuick(+el.dataset.qv);return;}
   if((el=t.closest('[data-act]'))){

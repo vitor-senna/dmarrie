@@ -147,7 +147,6 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .car-track{--gap:18px;display:flex;gap:var(--gap);overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;overscroll-behavior-x:contain;-webkit-overflow-scrolling:touch}
 .car-track::-webkit-scrollbar{display:none}
 .car-track>*{flex:0 0 calc((100% - var(--gap)*(var(--per) - 1))/var(--per));scroll-snap-align:start;min-width:0}
-.car--prod .car-track{--per:4}
 .car--rev .car-track{--per:4}
 .car-arrow{position:absolute;top:var(--ay,50%);transform:translateY(-50%);width:42px;height:42px;display:grid;place-items:center;border-radius:50%;background:var(--surface);border:1px solid var(--line);box-shadow:var(--shadow);z-index:3;transition:opacity .2s}
 .car-arrow.prev{left:-8px}
@@ -160,8 +159,24 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 
 /* cartão de produto */
 .card{display:flex;flex-direction:column;min-width:0}
-.media{position:relative;aspect-ratio:4/5;background:var(--tile);overflow:hidden}
+.media{position:relative;aspect-ratio:4/5;background:var(--tile);overflow:hidden;container-type:inline-size}
 .media-link{position:absolute;inset:0;display:block}
+/* roleta 3D: as fotos ficam nas faces de um prisma que gira no eixo vertical */
+.rl{position:absolute;inset:0;perspective:1100px}
+.rl-ring{position:absolute;inset:0;transform-style:preserve-3d;transform:translateZ(calc(var(--k)*-100cqw)) rotateY(calc(var(--a)*1deg));transition:transform .85s cubic-bezier(.3,1.25,.45,1)}
+.rl-face{position:absolute;inset:0;background:var(--tile);backface-visibility:hidden;-webkit-backface-visibility:hidden;transform:rotateY(calc(var(--i)*360deg/var(--n))) translateZ(calc(var(--k)*100cqw));filter:brightness(.8);transition:filter .85s}
+.rl-face.is-on{filter:none}
+.rl .art-b{opacity:1}
+.ph{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.rl-btn{position:absolute;top:50%;z-index:2;width:34px;height:34px;margin-top:-17px;display:grid;place-items:center;border-radius:50%;background:var(--surface);border:1px solid var(--line);box-shadow:var(--shadow);opacity:.92;transition:opacity .2s,transform .2s}
+.rl-btn .ic{width:16px;height:16px}
+.rl-btn.prev{left:8px}
+.rl-btn.next{right:8px}
+.rl-btn:hover{opacity:1;transform:scale(1.08)}
+.rl-pips{position:absolute;left:0;right:0;bottom:56px;z-index:2;display:flex;justify-content:center;gap:5px;pointer-events:none}
+.rl-pips i{width:6px;height:6px;border-radius:3px;background:var(--surface);box-shadow:0 0 0 1px var(--line);opacity:.75;transition:width .3s,opacity .3s,background .3s}
+.rl-pips i.on{width:16px;opacity:1;background:var(--thread)}
+.grid4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}
 .tag{position:absolute;top:12px;left:12px;z-index:2;background:var(--ink);color:var(--paper);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;padding:5px 10px;font-weight:600}
 .wish{position:absolute;top:6px;right:6px;z-index:2;width:44px;height:44px;display:grid;place-items:center;border-radius:50%}
 .wish .ic{width:21px;height:21px}
@@ -342,7 +357,6 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 /* responsivo */
 @media (max-width:1180px){.hdr-links{display:none}}
 @media (max-width:1100px){
-  .car--prod .car-track{--per:3}
   .car--rev .car-track{--per:3}
   .ft-grid{grid-template-columns:1fr 1fr}
 }
@@ -387,7 +401,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
   .ft-row{flex-direction:column}
   .car--rev .car-track{--per:1}
   .car-track{--gap:12px}
-  .car--prod .car-track{--per:2}
+  .grid4{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
   .sec-title{gap:12px}
 }
 @media (min-width:701px){
@@ -396,9 +410,11 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 @media (hover:hover){
   .actions{opacity:0;transform:translateY(8px);transition:opacity .25s,transform .25s}
   .card:hover .actions,.card:focus-within .actions{opacity:1;transform:none}
-  .card:hover .art-b{opacity:1}
-  .card:hover .art-a{opacity:0}
-  .card.no-alt:hover .art-a{opacity:1}
+  .rl-btn{opacity:0}
+  .card:hover .rl-btn,.rl-btn:focus-visible{opacity:.92}
+  .card:hover .rl-btn:hover{opacity:1}
+  .rl-pips{bottom:14px;transition:opacity .25s}
+  .card:hover .rl-pips,.card:focus-within .rl-pips{opacity:0}
 }
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
