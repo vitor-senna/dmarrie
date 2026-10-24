@@ -278,6 +278,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 
 /* camadas: menu, sacola, espiadinha, login, cupom */
 .layer{position:fixed;inset:0;z-index:100;display:flex}
+.layer[hidden]{display:none}
 .scrim{position:absolute;inset:0;background:rgba(20,22,26,.55);opacity:0;transition:opacity .25s}
 .layer.is-open .scrim{opacity:1}
 .panel{position:relative;background:var(--surface);color:var(--ink)}
