@@ -3,11 +3,10 @@
    Edite só aqui. O restante do arquivo monta a página a partir destes dados.
 
    COMO TROCAR AS IMAGENS
-   · Cada produto e cada slide do carrossel tem o campo  imagem  (e  imagem2  para o hover do produto).
-     Deixe vazio ('') para usar a ilustração em fio tracejado, ou informe uma imagem real.
-   · A imagem precisa ser um endereço https:// ou um data URI (data:image/jpeg;base64,...).
-     Atenção: quando esta página roda dentro de um visualizador com política de segurança restrita, imagens
-     de endereços externos podem ser bloqueadas. Nesse caso use data URI, ou hospede a página no seu domínio.
+   · Cada produto de Lançamentos e Mais vendidos tem um carrossel de fotos: campo  fotos  (lista de endereços).
+     Ex.: fotos: ["products/carrosel_02/foto1.jpg", "products/carrosel_02/foto2.jpg"]
+     Lista vazia ([]) mostra quadros vazios no carrossel (quantidade em  fotosVazias , logo abaixo).
+   · Os slides do carrossel principal têm o campo  imagem ; vazio ('') usa a ilustração em fio tracejado.
    · Ilustrações disponíveis (campo  forma ): anel · aliancas · brinco · argola · colar · perolas · pulseira · pingente
    · Tons disponíveis (campo  tom ): f1 azul-névoa · f2 névoa · f3 aço · f4 areia · f5 azul-fio · f6 grafite
    ===================================================================================================== */
@@ -117,26 +116,26 @@ window.DM_CONFIG = {
 
   /* ---------- 6. PRODUTOS ----------
      secao: 'novos' aparece em Lançamentos, 'top' aparece em Mais vendidos (os 4 primeiros de cada seção vão para a página principal)
-     tom / tom2: cor da ilustração e cor ao passar o mouse
-     imagem / imagem2: foto real (opcional)  ·  imagens: lista de fotos do carrossel do cartão (ex.: "products/carrosel_01/foto.jpg")
+     tom / tom2: cores da ilustração (usada na sacola, na busca e na espiadinha quando não há foto)
+     fotos: lista de fotos do carrossel do cartão ([] = quadros vazios)
      opcoes: lista de aros/medidas (vazio = sem seleção)
      rotuloOpcao: nome da medida ("Aro", "Comprimento")  ·  material: aparece junto ao código                  */
+  fotosVazias: 3,                                       // quadros vazios no carrossel de produtos sem fotos
   produtos: [
-    { id: 1,  secao: "novos", nome: "Anel solitário Aurora",     preco: 289, forma: "anel",     tom: "f1", tom2: "f5", cat: "Anéis",     codigo: "AN 1021", material: "Prata 925",       etiqueta: "Lançamento", rotuloOpcao: "Aro", opcoes: ["12","14","16","18","20"], imagem: "", imagem2: "" },
-    { id: 2,  secao: "novos", nome: "Brincos gota Lia",          preco: 219, forma: "brinco",   tom: "f2", tom2: "f3", cat: "Brincos",   codigo: "BR 2210", material: "Banho de ouro",   imagem: "", imagem2: "",
-      imagens: ["products/carrosel_01/dm-04-img.jpeg", "products/carrosel_01/brunnete_brinco01_perto.jpg", "products/carrosel_01/brunnete_brinco01_longe.jpg"] },
-    { id: 3,  secao: "novos", nome: "Colar ponto de luz Helena", preco: 259, forma: "colar",    tom: "f3", tom2: "f1", cat: "Colares",   codigo: "CO 3107", material: "Prata 925",       rotuloOpcao: "Comprimento", opcoes: ["40 cm","45 cm","50 cm"], imagem: "", imagem2: "" },
-    { id: 4,  secao: "novos", nome: "Bracelete liso Vera",       preco: 329, forma: "pulseira", tom: "f6", tom2: "f3", cat: "Pulseiras", codigo: "PU 4012", material: "Banho de ouro",   etiqueta: "Lançamento", rotuloOpcao: "Tamanho", opcoes: ["P","M","G"], imagem: "", imagem2: "" },
-    { id: 5,  secao: "novos", nome: "Argolas médias Noor",       preco: 189, forma: "argola",   tom: "f4", tom2: "f2", cat: "Brincos",   codigo: "BR 5033", material: "Banho de ouro",   imagem: "", imagem2: "" },
-    { id: 6,  secao: "novos", nome: "Par de alianças Fio",       preco: 449, forma: "aliancas", tom: "f1", tom2: "f6", cat: "Alianças",  codigo: "AL 6004", material: "Prata 925",       rotuloOpcao: "Aro", opcoes: ["12","14","16","18","20","22","24"], imagem: "", imagem2: "" },
-    { id: 7,  secao: "novos", nome: "Colar de pérolas Cecília",  preco: 349, forma: "perolas",  tom: "f3", tom2: "f4", cat: "Colares",   codigo: "CO 3134", material: "Pérolas cultivadas", imagem: "", imagem2: "" },
-    { id: 8,  secao: "novos", nome: "Pingente coração Íris",     preco: 169, forma: "pingente", tom: "f5", tom2: "f2", cat: "Pingentes", codigo: "PG 7045", material: "Prata 925",       etiqueta: "Lançamento", imagem: "", imagem2: "" },
-    { id: 9,  secao: "top",   nome: "Anel skinny Marina",        preco: 149, forma: "anel",     tom: "f2", tom2: "f1", cat: "Anéis",     codigo: "AN 1027", material: "Banho de ouro",   rotuloOpcao: "Aro", opcoes: ["12","14","16","18","20"], imagem: "", imagem2: "" },
-    { id: 10, secao: "top",   nome: "Brincos de pérola Alma",    preco: 179, forma: "brinco",   tom: "f6", tom2: "f4", cat: "Brincos",   codigo: "BR 2245", material: "Pérolas cultivadas", etiqueta: "Mais vendido", imagem: "", imagem2: "" },
-    { id: 11, secao: "top",   nome: "Argolas pequenas Duna",     preco: 159, forma: "argola",   tom: "f5", tom2: "f3", cat: "Brincos",   codigo: "BR 5071", material: "Prata 925",       etiqueta: "Mais vendido", imagem: "", imagem2: "" },
-    { id: 12, secao: "top",   nome: "Colar corrente Lúcia",      preco: 229, forma: "colar",    tom: "f4", tom2: "f5", cat: "Colares",   codigo: "CO 3150", material: "Banho de ouro",   rotuloOpcao: "Comprimento", opcoes: ["40 cm","45 cm","50 cm"], imagem: "", imagem2: "" },
-    { id: 13, secao: "top",   nome: "Pulseira berloques Fio",    preco: 269, forma: "pulseira", tom: "f1", tom2: "f6", cat: "Pulseiras", codigo: "PU 4041", material: "Prata 925",       etiqueta: "Mais vendido", rotuloOpcao: "Tamanho", opcoes: ["P","M","G"], imagem: "", imagem2: "" },
-    { id: 14, secao: "top",   nome: "Anel meia aliança Sol",     preco: 319, forma: "anel",     tom: "f6", tom2: "f2", cat: "Anéis",     codigo: "AN 1058", material: "Prata 925",       rotuloOpcao: "Aro", opcoes: ["12","14","16","18","20"], imagem: "", imagem2: "" }
+    { id: 1,  secao: "novos", nome: "Anel solitário Aurora",     preco: 289, forma: "anel",     tom: "f1", tom2: "f5", cat: "Anéis",     codigo: "AN 1021", material: "Prata 925",       etiqueta: "Lançamento", rotuloOpcao: "Aro", opcoes: ["12","14","16","18","20"], fotos: ["products/carrosel_01/dm-04-img.jpeg", "products/carrosel_01/brunnete_brinco01_perto.jpg", "products/carrosel_01/brunnete_brinco01_longe.jpg"] },
+    { id: 2,  secao: "novos", nome: "Brincos gota Lia",          preco: 219, forma: "brinco",   tom: "f2", tom2: "f3", cat: "Brincos",   codigo: "BR 2210", material: "Banho de ouro", fotos: [] },
+    { id: 3,  secao: "novos", nome: "Colar ponto de luz Helena", preco: 259, forma: "colar",    tom: "f3", tom2: "f1", cat: "Colares",   codigo: "CO 3107", material: "Prata 925",       rotuloOpcao: "Comprimento", opcoes: ["40 cm","45 cm","50 cm"], fotos: [] },
+    { id: 4,  secao: "novos", nome: "Bracelete liso Vera",       preco: 329, forma: "pulseira", tom: "f6", tom2: "f3", cat: "Pulseiras", codigo: "PU 4012", material: "Banho de ouro",   etiqueta: "Lançamento", rotuloOpcao: "Tamanho", opcoes: ["P","M","G"], fotos: [] },
+    { id: 5,  secao: "novos", nome: "Argolas médias Noor",       preco: 189, forma: "argola",   tom: "f4", tom2: "f2", cat: "Brincos",   codigo: "BR 5033", material: "Banho de ouro", fotos: [] },
+    { id: 6,  secao: "novos", nome: "Par de alianças Fio",       preco: 449, forma: "aliancas", tom: "f1", tom2: "f6", cat: "Alianças",  codigo: "AL 6004", material: "Prata 925",       rotuloOpcao: "Aro", opcoes: ["12","14","16","18","20","22","24"], fotos: [] },
+    { id: 7,  secao: "novos", nome: "Colar de pérolas Cecília",  preco: 349, forma: "perolas",  tom: "f3", tom2: "f4", cat: "Colares",   codigo: "CO 3134", material: "Pérolas cultivadas", fotos: [] },
+    { id: 8,  secao: "novos", nome: "Pingente coração Íris",     preco: 169, forma: "pingente", tom: "f5", tom2: "f2", cat: "Pingentes", codigo: "PG 7045", material: "Prata 925",       etiqueta: "Lançamento", fotos: [] },
+    { id: 9,  secao: "top",   nome: "Anel skinny Marina",        preco: 149, forma: "anel",     tom: "f2", tom2: "f1", cat: "Anéis",     codigo: "AN 1027", material: "Banho de ouro",   rotuloOpcao: "Aro", opcoes: ["12","14","16","18","20"], fotos: ["products/carrosel_01/dm-04-img.jpeg", "products/carrosel_01/brunnete_brinco01_perto.jpg", "products/carrosel_01/brunnete_brinco01_longe.jpg"] },
+    { id: 10, secao: "top",   nome: "Brincos de pérola Alma",    preco: 179, forma: "brinco",   tom: "f6", tom2: "f4", cat: "Brincos",   codigo: "BR 2245", material: "Pérolas cultivadas", etiqueta: "Mais vendido", fotos: [] },
+    { id: 11, secao: "top",   nome: "Argolas pequenas Duna",     preco: 159, forma: "argola",   tom: "f5", tom2: "f3", cat: "Brincos",   codigo: "BR 5071", material: "Prata 925",       etiqueta: "Mais vendido", fotos: [] },
+    { id: 12, secao: "top",   nome: "Colar corrente Lúcia",      preco: 229, forma: "colar",    tom: "f4", tom2: "f5", cat: "Colares",   codigo: "CO 3150", material: "Banho de ouro",   rotuloOpcao: "Comprimento", opcoes: ["40 cm","45 cm","50 cm"], fotos: [] },
+    { id: 13, secao: "top",   nome: "Pulseira berloques Fio",    preco: 269, forma: "pulseira", tom: "f1", tom2: "f6", cat: "Pulseiras", codigo: "PU 4041", material: "Prata 925",       etiqueta: "Mais vendido", rotuloOpcao: "Tamanho", opcoes: ["P","M","G"], fotos: [] },
+    { id: 14, secao: "top",   nome: "Anel meia aliança Sol",     preco: 319, forma: "anel",     tom: "f6", tom2: "f2", cat: "Anéis",     codigo: "AN 1058", material: "Prata 925",       rotuloOpcao: "Aro", opcoes: ["12","14","16","18","20"], fotos: [] }
   ],
 
   /* ---------- 7. TÍTULOS DAS SEÇÕES ---------- */

@@ -8,8 +8,9 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Hanken+Grotesk:wght@400;500;600;700&family=Pinyon+Script&display=swap">
-<link rel="stylesheet" href="style.css">
-<script src="config.js"></script>
+<!-- ?v= força o navegador a baixar a versão nova depois de cada atualização: mude o número ao publicar -->
+<link rel="stylesheet" href="style.css?v=2">
+<script src="config.js?v=2"></script>
 </head>
 <body>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
@@ -98,20 +99,23 @@
       <path class="gs" d="M100 196 C74 180 82 166 100 176 C118 166 126 180 100 196 Z"/>
       <path class="gl" d="M62 160 Q70 148 82 150"/>
     </symbol>
+    <symbol id="i-camera" viewBox="0 0 24 24"><path d="M4 8h3.5L9 6h6l1.5 2H20v11H4z"/><circle cx="12" cy="13.2" r="3.4"/></symbol>
   </defs>
 </svg>
 
 <a class="skip" href="#main">Ir para o conteúdo</a>
 <div id="top"></div>
 
+<!-- barra de aviso -->
 <div class="announce"><div class="wrap" id="announce"></div></div>
 
+<!-- cabeçalho: hambúrguer (celular) · atendimento · logo · ícones -->
 <header class="hdr" id="hdr">
   <div class="wrap hdr-main">
     <button class="icon-btn menu-btn" type="button" data-open="menu" aria-label="Abrir menu"><svg class="ic" aria-hidden="true"><use href="#i-menu"/></svg></button>
     <div class="hdr-left">
       <a class="help" href="#"><svg class="ic" aria-hidden="true"><use href="#i-help"/></svg><span>Central de<br><b>Atendimento</b></span></a>
-      <nav class="hdr-links" aria-label="Ajuda" id="hdrLinks"></nav>
+      <nav class="hdr-links" id="hdrLinks" aria-label="Ajuda"></nav>
     </div>
     <a class="brand" href="#top" id="brand" aria-label="Voltar ao topo"><span class="logo-mark" aria-hidden="true"></span></a>
     <div class="hdr-right">
@@ -121,7 +125,7 @@
       <button class="icon-btn" type="button" data-open="cart" aria-label="Abrir sacola"><svg class="ic" aria-hidden="true"><use href="#i-bag"/></svg><span class="badge cart-count" hidden>0</span></button>
     </div>
   </div>
-  <div class="search-panel" id="searchPanel">
+  <div class="search-panel">
     <div class="wrap">
       <form class="search-form" id="searchForm" role="search">
         <svg class="ic" aria-hidden="true"><use href="#i-search"/></svg>
@@ -133,72 +137,82 @@
     </div>
   </div>
 </header>
+
+<!-- menu de categorias (computador) -->
 <nav class="nav" aria-label="Categorias"><div class="wrap"><ul class="nav-list" id="navList"></ul></div></nav>
 
 <main id="main">
   <h1 class="sr" id="h1"></h1>
 
-  <section class="hero" id="hero" aria-roledescription="carrossel" aria-label="Destaques da loja" data-tone="">
+  <!-- carrossel principal -->
+  <section class="hero" id="hero" aria-roledescription="carrossel" aria-label="Destaques da loja">
     <div class="hero-track" id="heroTrack"></div>
     <button class="hero-arrow prev" type="button" aria-label="Slide anterior"><svg class="ic" aria-hidden="true"><use href="#i-left"/></svg></button>
     <button class="hero-arrow next" type="button" aria-label="Próximo slide"><svg class="ic" aria-hidden="true"><use href="#i-right"/></svg></button>
     <div class="hero-dots" id="heroDots"></div>
   </section>
 
+  <!-- vantagens -->
   <section class="benefits" aria-label="Vantagens da loja">
     <div class="wrap"><ul id="benefits"></ul></div>
   </section>
 
+  <!-- lançamentos -->
   <section class="sec" id="lancamentos">
     <div class="wrap">
       <div class="sec-head">
-        <h2 class="sec-title"><i class="st" aria-hidden="true"></i><span class="t" data-t="novos"></span><i class="st" aria-hidden="true"></i></h2>
-        <p class="sec-sub" data-s="novos"></p>
+        <h2 class="sec-title"><i class="st" aria-hidden="true"></i><span data-title="novos"></span><i class="st" aria-hidden="true"></i></h2>
+        <p class="sec-sub" data-sub="novos"></p>
       </div>
-      <div class="grid4" id="trkNew"></div>
+      <div class="grid" data-products="novos"></div>
     </div>
   </section>
 
+  <!-- faixa em loop -->
   <div class="loop" aria-hidden="true"><div class="loop-track" id="loopTrack"></div></div>
 
+  <!-- mais vendidos -->
   <section class="sec" id="best-sellers">
     <div class="wrap">
       <div class="sec-head">
-        <h2 class="sec-title"><i class="st" aria-hidden="true"></i><span class="t" data-t="top"></span><i class="st" aria-hidden="true"></i></h2>
-        <p class="sec-sub" data-s="top"></p>
+        <h2 class="sec-title"><i class="st" aria-hidden="true"></i><span data-title="top"></span><i class="st" aria-hidden="true"></i></h2>
+        <p class="sec-sub" data-sub="top"></p>
       </div>
-      <div class="grid4" id="trkBest"></div>
+      <div class="grid" data-products="top"></div>
     </div>
   </section>
 
+  <!-- depoimentos -->
   <section class="sec" id="avaliacoes">
     <div class="wrap">
       <div class="sec-head">
-        <h2 class="sec-title"><i class="st" aria-hidden="true"></i><span class="t" data-t="avaliacoes"></span><i class="st" aria-hidden="true"></i></h2>
-        <p class="sec-sub" data-s="avaliacoes"></p>
+        <h2 class="sec-title"><i class="st" aria-hidden="true"></i><span data-title="avaliacoes"></span><i class="st" aria-hidden="true"></i></h2>
+        <p class="sec-sub" data-sub="avaliacoes"></p>
       </div>
-      <div class="car car--rev" id="carRev">
-        <button class="car-arrow prev" type="button" aria-label="Anteriores"><svg class="ic" aria-hidden="true"><use href="#i-left"/></svg></button>
-        <div class="car-track" id="trkRev" tabindex="0" aria-label="Depoimentos, deslize para o lado"></div>
-        <button class="car-arrow next" type="button" aria-label="Próximos"><svg class="ic" aria-hidden="true"><use href="#i-right"/></svg></button>
-        <div class="car-dots"></div>
+      <div class="rail" id="reviews">
+        <button class="rail-arrow prev" type="button" aria-label="Depoimentos anteriores"><svg class="ic" aria-hidden="true"><use href="#i-left"/></svg></button>
+        <div class="rail-track" id="reviewTrack" tabindex="0" aria-label="Depoimentos, deslize para o lado"></div>
+        <button class="rail-arrow next" type="button" aria-label="Próximos depoimentos"><svg class="ic" aria-hidden="true"><use href="#i-right"/></svg></button>
+        <div class="rail-dots"></div>
       </div>
     </div>
   </section>
 
+  <!-- newsletter -->
   <section class="news" aria-labelledby="newsT">
     <div class="wrap">
-      <h2 id="newsT" data-t="newsletter"></h2>
-      <p data-s="newsletter"></p>
+      <h2 id="newsT" data-title="newsletter"></h2>
+      <p data-sub="newsletter"></p>
       <form class="news-form" id="newsForm">
         <label class="sr" for="newsMail">Seu e-mail</label>
         <input id="newsMail" type="email" required placeholder="Digite seu e-mail aqui" autocomplete="email">
-        <button type="submit"><span id="newsBtn"></span> <svg class="ic" aria-hidden="true"><use href="#i-right"/></svg></button>
+        <button type="submit"><span id="newsBtn"></span><svg class="ic" aria-hidden="true"><use href="#i-right"/></svg></button>
       </form>
     </div>
   </section>
 </main>
 
+<!-- rodapé -->
 <footer class="ft">
   <div class="wrap">
     <div class="ft-grid">
@@ -212,9 +226,9 @@
       <div>
         <details open><summary>Atendimento<svg class="ic" aria-hidden="true"><use href="#i-chev"/></svg></summary>
           <ul>
-            <li><svg class="ic" aria-hidden="true"><use href="#i-whats"/></svg><span>WhatsApp: <a class="wa-link" id="ftWa" href="#" target="_blank" rel="noopener noreferrer"><strong></strong></a></span></li>
-            <li><svg class="ic" aria-hidden="true"><use href="#i-mail"/></svg><span>E-mail: <strong id="ftMail"></strong></span></li>
-            <li><svg class="ic" aria-hidden="true"><use href="#i-clock"/></svg><span id="ftHours"></span></li>
+            <li><svg class="ic" aria-hidden="true"><use href="#i-whats"/></svg><span>WhatsApp: <a class="wa-link" data-wa href="#" target="_blank" rel="noopener noreferrer"><strong data-wa-text></strong></a></span></li>
+            <li><svg class="ic" aria-hidden="true"><use href="#i-mail"/></svg><span>E-mail: <strong data-mail></strong></span></li>
+            <li><svg class="ic" aria-hidden="true"><use href="#i-clock"/></svg><span data-hours></span></li>
           </ul>
         </details>
       </div>
@@ -227,7 +241,7 @@
   </div>
 </footer>
 
-<!-- elementos fixos -->
+<!-- Instagram flutuante -->
 <div class="ig" id="ig">
   <div class="ig-card" id="igCard" role="dialog" aria-label="Instagram da loja">
     <div class="ig-head">
@@ -242,11 +256,13 @@
   <button class="ig-btn" type="button" id="igBtn" aria-expanded="false" aria-controls="igCard" aria-label="Abrir Instagram da loja"><span class="logo-d" aria-hidden="true"></span></button>
 </div>
 
+<!-- voltar ao topo e WhatsApp -->
 <div class="fab-stack">
   <button class="fab up" type="button" id="toTop" aria-label="Voltar ao topo"><svg class="ic" aria-hidden="true"><use href="#i-up"/></svg></button>
-  <a class="fab wa" id="waFab" href="#" target="_blank" rel="noopener noreferrer" aria-label="Falar no WhatsApp"><svg class="ic" aria-hidden="true"><use href="#i-whats"/></svg></a>
+  <a class="fab wa" data-wa href="#" target="_blank" rel="noopener noreferrer" aria-label="Falar no WhatsApp"><svg class="ic" aria-hidden="true"><use href="#i-whats"/></svg></a>
 </div>
 
+<!-- barra inferior (celular) -->
 <nav class="bbar" aria-label="Atalhos">
   <button type="button" data-open="menu"><svg class="ic" aria-hidden="true"><use href="#i-menu"/></svg><span>Todos</span></button>
   <button type="button" data-search><svg class="ic" aria-hidden="true"><use href="#i-search"/></svg><span>Busca</span></button>
@@ -257,7 +273,9 @@
 
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-<!-- menu mobile -->
+<!-- ===== janelas (ficam escondidas até abrir) ===== -->
+
+<!-- menu lateral -->
 <div class="layer" id="menu" hidden>
   <div class="scrim" data-close></div>
   <aside class="panel drawer" role="dialog" aria-modal="true" aria-label="Menu">
@@ -278,9 +296,9 @@
       <form class="track-form" id="trackForm"><label class="sr" for="trackIn">Código de rastreio</label><input id="trackIn" type="text" placeholder="Código de rastreio" autocomplete="off"><button type="submit">Buscar</button></form>
       <p class="info-h">Atendimento</p>
       <div class="contact-box">
-        <span>WhatsApp: <a class="wa-link" id="mnWa" href="#" target="_blank" rel="noopener noreferrer"><strong></strong></a></span>
-        <span>E-mail: <strong id="mnMail"></strong></span>
-        <span id="mnHours"></span>
+        <span>WhatsApp: <a class="wa-link" data-wa href="#" target="_blank" rel="noopener noreferrer"><strong data-wa-text></strong></a></span>
+        <span>E-mail: <strong data-mail></strong></span>
+        <span data-hours></span>
       </div>
     </div>
   </aside>
@@ -319,7 +337,7 @@
       <p class="qv-msg" id="qvMsg" role="status"></p>
       <div class="qv-cta">
         <button class="btn-solid" type="button" id="qvAdd">Adicionar à sacola</button>
-        <button class="wish" type="button" id="qvWish" aria-pressed="false"><svg class="ic" aria-hidden="true"><use href="#i-heart"/></svg>Favoritar</button>
+        <button class="qv-wish" type="button" id="qvWish" aria-pressed="false"><svg class="ic" aria-hidden="true"><use href="#i-heart"/></svg>Favoritar</button>
       </div>
     </div>
   </div>
@@ -340,7 +358,7 @@
   </div>
 </div>
 
-<!-- cupom -->
+<!-- cupom de boas-vindas -->
 <div class="layer" id="news" hidden>
   <div class="scrim" data-close></div>
   <div class="panel modal sm" role="dialog" aria-modal="true" aria-labelledby="popT">
@@ -361,6 +379,7 @@
     </div>
   </div>
 </div>
-<script src="app.js"></script>
+
+<script src="app.js?v=2"></script>
 </body>
 </html>
