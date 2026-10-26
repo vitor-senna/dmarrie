@@ -199,9 +199,44 @@ function card(p) {
     '<p class="more"><a href="#">+ ' + esc(p.cat) + '</a></p>' +
   '</article>';
 }
-/* 4 produtos de cada seção na página principal */
+/* cada seção da página principal é um carrossel com os produtos que já têm fotos */
 setAll('[data-products]', grid => {
-  grid.innerHTML = P.filter(p => p.secao === grid.dataset.products).slice(0, 4).map(card).join('');
+  grid.innerHTML = P.filter(p => p.secao === grid.dataset.products && fotos(p).length).map(card).join('');
+});
+
+/* carrossel de cartões (Lançamentos e Mais vendidos): as setas andam um cartão e, a cada 8 s, ele passa um cartão
+   para a direita; no fim volta ao começo. Para enquanto o mouse ou o foco estão nele e por alguns segundos depois de um toque. */
+const RAIL_AUTO = 8000;
+$$('[data-prod-rail]').forEach(root => {
+  /* '.prod-arrow' evita pegar as setinhas .prev/.next do carrossel de fotos de dentro dos cartões */
+  const track = $('.prod-track', root), prev = $('.prod-arrow.prev', root), next = $('.prod-arrow.next', root);
+  let hold = 0;
+  const step = () => (track.firstElementChild ? track.firstElementChild.getBoundingClientRect().width : track.clientWidth) +
+    (parseFloat(getComputedStyle(track).columnGap) || 0);
+  const atEnd = () => track.scrollLeft + track.clientWidth >= track.scrollWidth - 2;
+  function go(dir) {
+    const left = dir > 0 && atEnd() ? 0
+      : dir < 0 && track.scrollLeft <= 2 ? track.scrollWidth
+      : (Math.round(track.scrollLeft / step()) + dir) * step();
+    track.scrollTo({ left, behavior: reduceMotion ? 'auto' : 'smooth' });
+  }
+  /* as setas ficam na altura do meio da foto dos cartões */
+  function place() {
+    const m = $('.media', track);
+    if (m) root.style.setProperty('--arrow-y', (m.offsetTop + m.offsetHeight / 2) + 'px');
+    root.classList.toggle('single', track.scrollWidth <= track.clientWidth + 2);
+  }
+  prev.addEventListener('click', () => { hold = Date.now(); go(-1); });
+  next.addEventListener('click', () => { hold = Date.now(); go(1); });
+  root.addEventListener('pointerdown', () => { hold = Date.now(); });
+  if (window.ResizeObserver) new ResizeObserver(place).observe(track); else { place(); window.addEventListener('resize', place); }
+
+  if (!reduceMotion) setInterval(() => {
+    if (document.hidden || root.matches(':hover, :focus-within') || Date.now() - hold < RAIL_AUTO) return;
+    const r = root.getBoundingClientRect();
+    if (r.bottom < 0 || r.top > innerHeight || root.classList.contains('single')) return;
+    go(1);
+  }, RAIL_AUTO);
 });
 
 /* ---------- faixa em loop, depoimentos e Instagram ---------- */

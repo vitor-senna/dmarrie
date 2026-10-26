@@ -9,8 +9,8 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Hanken+Grotesk:wght@400;500;600;700&family=Pinyon+Script&display=swap">
 <!-- ?v= força o navegador a baixar a versão nova depois de cada atualização: mude o número ao publicar -->
-<link rel="stylesheet" href="style.css?v=10">
-<script src="config.js?v=10"></script>
+<link rel="stylesheet" href="style.css?v=13">
+<script src="config.js?v=13"></script>
 </head>
 <body>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
@@ -161,7 +161,11 @@
         <h2 class="sec-title"><i class="st" aria-hidden="true"></i><span data-title="novos"></span><i class="st" aria-hidden="true"></i></h2>
         <p class="sec-sub" data-sub="novos"></p>
       </div>
-      <div class="grid" data-products="novos"></div>
+      <div class="prod-rail" data-prod-rail>
+        <button class="prod-arrow prev" type="button" aria-label="Lançamentos anteriores"><svg class="ic" aria-hidden="true"><use href="#i-left"/></svg></button>
+        <div class="rail-track prod-track" data-products="novos" tabindex="0" aria-label="Lançamentos, deslize para o lado"></div>
+        <button class="prod-arrow next" type="button" aria-label="Próximos lançamentos"><svg class="ic" aria-hidden="true"><use href="#i-right"/></svg></button>
+      </div>
     </div>
   </section>
 
@@ -175,7 +179,11 @@
         <h2 class="sec-title"><i class="st" aria-hidden="true"></i><span data-title="top"></span><i class="st" aria-hidden="true"></i></h2>
         <p class="sec-sub" data-sub="top"></p>
       </div>
-      <div class="grid" data-products="top"></div>
+      <div class="prod-rail" data-prod-rail>
+        <button class="prod-arrow prev" type="button" aria-label="Mais vendidos anteriores"><svg class="ic" aria-hidden="true"><use href="#i-left"/></svg></button>
+        <div class="rail-track prod-track" data-products="top" tabindex="0" aria-label="Mais vendidos, deslize para o lado"></div>
+        <button class="prod-arrow next" type="button" aria-label="Próximos mais vendidos"><svg class="ic" aria-hidden="true"><use href="#i-right"/></svg></button>
+      </div>
     </div>
   </section>
 
@@ -377,6 +385,6 @@
   </div>
 </div>
 
-<script src="app.js?v=10"></script>
+<script src="app.js?v=13"></script>
 </body>
 </html>

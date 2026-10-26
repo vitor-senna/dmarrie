@@ -190,6 +190,15 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .rail-arrow.prev{left:-8px}
 .rail-arrow.next{right:-8px}
 .rail-arrow[disabled]{opacity:.3;cursor:default}
+/* carrossel de cartões de Lançamentos e Mais vendidos: setas grandes, redondas, rosa da marca com borda preta */
+.prod-rail{position:relative}
+.prod-track{--per:4}
+.prod-arrow{position:absolute;top:var(--arrow-y,40%);transform:translateY(-50%);z-index:4;width:56px;height:56px;display:grid;place-items:center;border-radius:50%;background:var(--thread);color:#fff;border:2px solid #000;box-shadow:var(--shadow);transition:transform .2s,opacity .2s}
+.prod-arrow .ic{width:26px;height:26px;stroke-width:2.4}
+.prod-arrow:hover{transform:translateY(-50%) scale(1.08)}
+.prod-arrow.prev{left:-14px}
+.prod-arrow.next{right:-14px}
+.prod-rail.single .prod-arrow{display:none}
 .rail-dots{display:flex;justify-content:center;gap:8px;margin-top:24px}
 .rail-dots button{position:relative;width:8px;height:8px;border-radius:4px;background:var(--line);transition:width .25s,background .25s}
 .rail-dots button::after{content:"";position:absolute;inset:-12px -4px}
@@ -344,6 +353,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 @media (max-width:1180px){.hdr-links{display:none}}
 @media (max-width:1100px){
   .rail-track{--per:3}
+  .prod-track{--per:3}
   .ft-grid{grid-template-columns:1fr 1fr}
 }
 @media (max-width:900px){
@@ -352,6 +362,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
   .hdr-left,.nav,.hide-m{display:none}
   .hdr .logo-mark{width:116px}
   .rail-track{--per:2}
+  .prod-track{--per:2}
   .benefits ul{grid-template-columns:1fr 1fr}
   .benefits li{justify-content:flex-start}
   .sec{padding-block:48px 4px}
@@ -384,6 +395,11 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
   .ft details ul{margin-bottom:18px}
   .ft-row{flex-direction:column}
   .rail-track{--per:1;--gap:12px}
+  .prod-track{--per:2}
+  .prod-arrow{width:44px;height:44px}
+  .prod-arrow .ic{width:22px;height:22px}
+  .prod-arrow.prev{left:-6px}
+  .prod-arrow.next{right:-6px}
   .sec-title{gap:12px}
 }
 @media (min-width:701px){
