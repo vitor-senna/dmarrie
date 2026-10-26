@@ -160,6 +160,23 @@ document.addEventListener('scroll', e => {
   cancelAnimationFrame(t._raf);
   t._raf = requestAnimationFrame(() => galDots(t.parentElement, galIndex(t)));
 }, true);
+/* passagem automática: a cada 2 s, o carrossel de cada cartão visível avança uma foto para a direita.
+   Para enquanto o mouse ou o foco estão no cartão e por alguns segundos depois de um toque; desligada com movimento reduzido. */
+const GAL_AUTO = 2000;
+document.addEventListener('pointerdown', e => {
+  const g = e.target.closest && e.target.closest('.card [data-gal]');
+  if (g) g._hold = Date.now();
+}, true);
+if (!reduceMotion) setInterval(() => {
+  if (document.hidden) return;
+  $$('.card [data-gal]').forEach(g => {
+    const track = $('.gal-track', g);
+    if (track.children.length < 2 || g.matches(':hover, :focus-within') || Date.now() - (g._hold || 0) < 5000) return;
+    const r = g.getBoundingClientRect();
+    if (r.bottom < 0 || r.top > innerHeight || r.right < 0 || r.left > innerWidth || !r.width) return;
+    galGo(g, galIndex(track) + 1);
+  });
+}, GAL_AUTO);
 
 /* ---------- produtos ---------- */
 function card(p) {

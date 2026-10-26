@@ -135,10 +135,10 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .wish{position:absolute;top:6px;right:6px;z-index:2;width:44px;height:44px;display:grid;place-items:center;border-radius:50%}
 .wish .ic{width:21px;height:21px}
 .wish[aria-pressed="true"] .ic,.qv-wish[aria-pressed="true"] .ic{fill:var(--thread);stroke:var(--thread)}
-.actions{position:absolute;left:0;right:0;bottom:0;z-index:2;display:flex;gap:1px}
-.btn-mini{flex:1;min-height:44px;padding:0 6px;font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;font-weight:600;background:var(--surface);color:var(--ink)}
-.btn-mini.solid{background:var(--ink);color:var(--paper)}
-.btn-mini:hover{background:var(--thread);color:var(--on-thread)}
+/* Olhar/Comprar: fundo transparente para não esconder a foto; o halo claro no texto mantém a leitura sobre fotos escuras */
+.actions{position:absolute;left:8px;right:8px;bottom:8px;z-index:2;display:flex;gap:8px}
+.btn-mini{flex:1;min-height:40px;padding:0 6px;font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;background:transparent;color:var(--ink);border:1px solid var(--ink);text-shadow:0 0 2px #fff,0 0 6px #fff;transition:background .2s,color .2s,border-color .2s}
+.btn-mini:hover{background:var(--thread);border-color:var(--thread);color:var(--on-thread);text-shadow:none}
 .code{margin-top:14px;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
 .p-title{margin:4px 0 6px;font:500 15.5px/1.3 var(--font-body)}
 .p-title a:hover{text-decoration:underline;text-underline-offset:3px}
