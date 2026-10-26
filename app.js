@@ -46,6 +46,8 @@ function thumb(p) {
   root.setProperty('--logo-d', 'url("data:image/png;base64,' + C.logo.monograma + '")');
   root.setProperty('--ar', C.logo.proporcao);
   root.setProperty('--ar-d', C.logo.proporcaoMonograma);
+  root.setProperty('--logo-hdr', 'url("data:image/png;base64,' + C.logo.cabecalho + '")');
+  root.setProperty('--ar-hdr', C.logo.proporcaoCabecalho);
 
   $('meta[name="description"]').content = C.loja.descricao;
   $('#h1').textContent = C.loja.titulo;

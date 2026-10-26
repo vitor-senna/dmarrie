@@ -68,7 +68,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .announce b{font-weight:700;letter-spacing:.2em;color:var(--bar-accent)}
 .hdr{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:var(--paper);border-bottom:1px solid var(--line)}
 .hdr-main{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:16px;padding-block:12px}
-.hdr .logo-mark{width:150px}
+.hdr .logo-mark{width:150px;aspect-ratio:var(--ar-hdr);-webkit-mask-image:var(--logo-hdr);mask-image:var(--logo-hdr)}
 .menu-btn{display:none}
 .hdr-left{display:flex;align-items:center;gap:26px;font-size:12px;line-height:1.25;min-width:0}
 .help{display:flex;gap:10px;align-items:center}
