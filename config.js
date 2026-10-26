@@ -64,42 +64,14 @@ window.DM_CONFIG = {
   ],
   linksCabecalho: ["Trocas e<br>devoluções", "Guia de<br>aros", "Regras de<br>frete grátis"],
 
-  /* ---------- 4. CARROSSEL PRINCIPAL (hero) ----------
-     tema: 1 a 4 escolhe o par de cores do slide (1 névoa · 2 grafite · 3 azul-claro · 4 azul-fio)
-     imagem: se preenchida, substitui a ilustração. descricaoImagem: texto alternativo (acessibilidade).
-     itens: [forma, x, y, largura, altura, tom]  dentro de uma tela de 600 x 500
-     circulo: [cx, cy, raio, opacidade]  disco de fundo atrás das joias
-     fio: caminho do traço tracejado animado (deixe '' para remover)                                   */
-  hero: [
-    { tema: 1, kicker: "Nova coleção", script: "Brilho leve", titulo: "Joias delicadas para o dia a dia",
-      texto: "Anéis, brincos e colares finos para usar sozinhos ou em composição.",
-      botao: "Ver novidades", link: "#lancamentos",
-      imagem: "", descricaoImagem: "",
-      circulo: [330, 260, 190, 1],
-      itens: [["colar", 225, 40, 290, 377, "f1"], ["anel", 50, 250, 150, 195, "f2"], ["brinco", 420, 300, 130, 169, "f5"]],
-      fio: "M10 470 C120 380 300 430 390 270 S440 100 478 66" },
-    { tema: 2, kicker: "Composição", script: "Monte seu mix", titulo: "Leve 3 peças e ganhe 15% de desconto",
-      texto: "Combine colares, pulseiras e anéis. O desconto aparece direto na sacola.",
-      botao: "Escolher joias", link: "#best-sellers",
-      imagem: "", descricaoImagem: "",
-      circulo: [300, 250, 200, 0.08],
-      itens: [["pulseira", 30, 110, 220, 286, "f1"], ["pingente", 190, 40, 230, 299, "f2"], ["argola", 380, 150, 200, 260, "f3"]],
-      fio: "M10 60 C150 150 200 40 330 120 S520 20 590 110" },
-    { tema: 3, kicker: "Alianças", script: "Para sempre", titulo: "Alianças e anéis para marcar cada história",
-      texto: "Acabamento polido, conforto no uso e opções em vários aros.",
-      botao: "Ver alianças", link: "#best-sellers",
-      imagem: "", descricaoImagem: "",
-      circulo: [300, 250, 195, 0.7],
-      itens: [["aliancas", 120, 30, 340, 442, "f6"], ["anel", 400, 250, 150, 195, "f5"]],
-      fio: "M20 440 C140 330 230 420 340 300 S520 160 580 40" },
-    { tema: 4, kicker: "Pérolas", script: "Detalhes", titulo: "Pérolas e brincos para fechar o look",
-      texto: "Peças clássicas com brilho suave, para presentear ou para você.",
-      botao: "Ver pérolas", link: "#best-sellers",
-      imagem: "", descricaoImagem: "",
-      circulo: [320, 250, 190, 0.1],
-      itens: [["perolas", 180, 40, 280, 364, "f2"], ["brinco", 40, 240, 150, 195, "f1"]],
-      fio: "M30 80 C160 20 260 130 380 60 S540 30 585 130" }
-  ],
+  /* ---------- 4. VÍDEO DE ABERTURA (logo abaixo do cabeçalho) ----------
+     arquivo: o vídeo (mp4, sem som: o navegador só toca sozinho sem áudio)
+     capa: imagem mostrada enquanto o vídeo carrega. descricao: texto alternativo (acessibilidade).   */
+  heroVideo: {
+    arquivo: "video_intro_final.mp4",
+    capa: "video_intro_final.jpg",
+    descricao: "Vitrine da D'marrie com colares, brincos, anéis e pulseiras, terminando no logo da loja"
+  },
 
   /* ---------- 5. MENU ---------- (t = título, sub = subitens, h = link quando não há subitens) */
   menu: [

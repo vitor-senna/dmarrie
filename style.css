@@ -108,36 +108,9 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .suggest .thumb{width:44px}
 .sg-none{padding:10px 6px;color:var(--ink-2)}
 
-/* ---------- carrossel principal ---------- */
-.hero{position:relative;overflow:hidden;--dotc:var(--ink);--dotc-inv:var(--paper)}
-.hero[data-tone="inv"]{--dotc:var(--paper);--dotc-inv:var(--ink)}
-.hero-track{display:flex;transition:transform .7s cubic-bezier(.65,0,.25,1)}
-.slide{flex:0 0 100%;min-width:0;background:var(--sb);color:var(--sf)}
-.s1{--sb:var(--fog);--sf:var(--ink);--sa:var(--thread)}
-.s2{--sb:var(--ink);--sf:var(--paper);--sa:var(--thread-inv)}
-.s3{--sb:var(--thread-soft);--sf:var(--ink);--sa:var(--thread)}
-.s4{--sb:var(--thread);--sf:var(--on-thread);--sa:var(--thread-soft)}
-.slide-in{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);align-items:center;gap:24px;min-height:clamp(440px,44vw,600px)}
-.slide-copy{padding-block:48px;max-width:540px;min-width:0}
-.kicker{display:flex;align-items:center;gap:12px;font-size:12px;letter-spacing:.22em;text-transform:uppercase;font-weight:600;color:var(--sa)}
-.kicker::before{content:"";width:34px;height:2px;background:repeating-linear-gradient(90deg,currentColor 0 5px,transparent 5px 9px)}
-.script{display:block;font-family:var(--font-script);font-weight:400;font-size:clamp(60px,8.6vw,120px);line-height:1.02;color:var(--sa);margin:10px 0 2px;text-wrap:balance}
-.ttl{display:block;font:500 clamp(24px,2.9vw,38px)/1.18 var(--font-display);margin:6px 0 12px;text-wrap:balance}
-.slide-text{max-width:44ch;opacity:.88;margin-bottom:26px}
-.slide .btn-solid{background:var(--sf);color:var(--sb);border-color:var(--sf)}
-.slide .btn-solid:hover{background:transparent;color:var(--sf);border-color:var(--sf)}
-.slide-art{align-self:stretch;display:grid;place-items:center;padding-block:20px;min-width:0}
-.slide-art svg,.slide-art img{width:100%;max-width:580px;height:auto;max-height:520px}
-.slide-art img{object-fit:contain}
-.thread{stroke-dasharray:7 7;animation:march 2.4s linear infinite}
-@keyframes march{to{stroke-dashoffset:-28}}
-.hero-arrow{position:absolute;top:50%;transform:translateY(-50%);width:46px;height:46px;border-radius:50%;background:var(--dotc);color:var(--dotc-inv);display:grid;place-items:center;z-index:3;transition:background .3s,color .3s}
-.hero-arrow.prev{left:max(14px,env(safe-area-inset-left,0px))}
-.hero-arrow.next{right:max(14px,env(safe-area-inset-right,0px))}
-.hero-dots{position:absolute;left:0;right:0;bottom:18px;display:flex;justify-content:center;gap:10px;z-index:3}
-.hero-dots button{position:relative;width:10px;height:10px;border-radius:5px;background:var(--dotc);opacity:.35;transition:width .3s,opacity .3s}
-.hero-dots button::after{content:"";position:absolute;inset:-12px -4px}
-.hero-dots button[aria-current="true"]{width:28px;opacity:1}
+/* ---------- vídeo de abertura ---------- */
+.hero{background:var(--ink)}
+.hero-video{display:block;width:100%;aspect-ratio:832/464;max-height:600px;object-fit:cover}
 
 /* ---------- vantagens ---------- */
 .benefits{padding-block:30px;border-bottom:1px solid var(--line)}
@@ -368,7 +341,6 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .coupon{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:18px 0;padding:14px 16px;border:2px dashed var(--thread);font-weight:700;letter-spacing:.2em;font-size:18px;user-select:all}
 
 /* ---------- responsivo ---------- */
-@media (min-width:901px){.slide-copy{margin-left:36px}}
 @media (max-width:1180px){.hdr-links{display:none}}
 @media (max-width:1100px){
   .rail-track{--per:3}
@@ -380,11 +352,6 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
   .hdr-left,.nav,.hide-m{display:none}
   .hdr .logo-mark{width:116px}
   .rail-track{--per:2}
-  .slide-in{grid-template-columns:1fr;gap:0}
-  .slide-art{order:-1;padding-block:20px 0}
-  .slide-art svg,.slide-art img{max-height:250px}
-  .slide-copy{padding-block:12px 64px}
-  .hero-arrow{top:150px;width:38px;height:38px}
   .benefits ul{grid-template-columns:1fr 1fr}
   .benefits li{justify-content:flex-start}
   .sec{padding-block:48px 4px}

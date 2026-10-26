@@ -102,68 +102,13 @@ setAll('[data-tab]', b => b.addEventListener('click', () => {
   $('#tab-info').hidden = b.dataset.tab !== 'info';
 }));
 
-/* ---------- carrossel principal ---------- */
-(function hero() {
-  const hero = $('#hero'), track = $('#heroTrack'), dots = $('#heroDots');
-  const n = C.hero.length;
-
-  track.innerHTML = C.hero.map((h, i) => {
-    const th = ((h.tema || i + 1) - 1) % 4 + 1;
-    let art;
-    if (h.imagem) {
-      art = '<img src="' + esc(h.imagem) + '" alt="' + esc(h.descricaoImagem || '') + '" decoding="async"' + (i ? ' loading="lazy"' : '') + '>';
-    } else {
-      const c = h.circulo;
-      const fill = th === 1 ? 'var(--thread-soft)' : th === 3 ? 'var(--surface)' : 'var(--sf)';
-      art = '<svg viewBox="0 0 600 500" role="img" aria-label="' + esc(h.descricaoImagem || 'Ilustração de joias com costura em fio') + '" style="--st:var(--sf)">' +
-        (c ? '<circle cx="' + c[0] + '" cy="' + c[1] + '" r="' + c[2] + '" fill="' + fill + '" opacity="' + (c[3] == null ? 1 : c[3]) + '"/>' : '') +
-        (h.itens || []).map(it => '<use href="#j-' + it[0] + '" x="' + it[1] + '" y="' + it[2] + '" width="' + it[3] + '" height="' + it[4] + '" style="--g:var(--' + it[5] + ')"/>').join('') +
-        (h.fio ? '<path class="thread" d="' + h.fio + '" fill="none" stroke="' + (th === 1 || th === 3 ? 'var(--thread)' : 'var(--sa)') + '" stroke-width="2.6" stroke-linecap="round"/>' : '') +
-        '</svg>';
-    }
-    return '<div class="slide s' + th + '"' + (th === 2 || th === 4 ? ' data-tone="inv"' : '') + ' role="group" aria-roledescription="slide" aria-label="' + (i + 1) + ' de ' + n + '">' +
-      '<div class="wrap slide-in"><div class="slide-copy"><p class="kicker">' + esc(h.kicker) + '</p>' +
-      '<h2><span class="script">' + esc(h.script) + '</span><span class="ttl">' + esc(h.titulo) + '</span></h2>' +
-      '<p class="slide-text">' + esc(h.texto) + '</p><a class="btn-solid" href="' + esc(h.link || '#') + '">' + esc(h.botao) + '</a></div>' +
-      '<div class="slide-art">' + art + '</div></div></div>';
-  }).join('');
-
-  const slides = $$('.slide', track);
-  dots.innerHTML = slides.map((_, k) => '<button type="button" aria-label="Ir para o slide ' + (k + 1) + '"></button>').join('');
-  let cur = 0, timer = 0;
-
-  function go(i) {
-    cur = (i + n) % n;
-    track.style.transform = 'translateX(' + (-cur * 100) + '%)';
-    $$('button', dots).forEach((b, k) => b.setAttribute('aria-current', String(k === cur)));
-    hero.dataset.tone = slides[cur].dataset.tone || '';
-    slides.forEach((s, k) => { s.inert = k !== cur; });
-  }
-  const stop = () => clearInterval(timer);
-  const play = () => { stop(); if (!reduceMotion) timer = setInterval(() => go(cur + 1), 5500); };
-
-  dots.addEventListener('click', e => {
-    const b = e.target.closest('button');
-    if (b) { go($$('button', dots).indexOf(b)); play(); }
-  });
-  $('.prev', hero).addEventListener('click', () => { go(cur - 1); play(); });
-  $('.next', hero).addEventListener('click', () => { go(cur + 1); play(); });
-  hero.addEventListener('mouseenter', stop);
-  hero.addEventListener('mouseleave', play);
-  hero.addEventListener('focusin', stop);
-  hero.addEventListener('focusout', play);
-
-  let x0 = null;
-  hero.addEventListener('touchstart', e => { x0 = e.touches[0].clientX; }, { passive: true });
-  hero.addEventListener('touchend', e => {
-    if (x0 === null) return;
-    const dx = e.changedTouches[0].clientX - x0;
-    x0 = null;
-    if (Math.abs(dx) > 50) { go(dx < 0 ? cur + 1 : cur - 1); play(); }
-  }, { passive: true });
-
-  go(0);
-  play();
+/* ---------- vídeo de abertura ---------- */
+(function heroVideo() {
+  const v = $('#heroVideo'), h = C.heroVideo;
+  v.poster = h.capa;
+  v.setAttribute('aria-label', h.descricao);
+  if (reduceMotion) { v.removeAttribute('autoplay'); v.controls = true; }
+  v.src = h.arquivo;
 })();
 
 /* ---------- carrossel de fotos (cartões e espiadinha) ----------
