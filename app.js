@@ -9,6 +9,12 @@
 
 const C = window.DM_CONFIG;
 const P = C.produtos;
+/* a cada carregamento, o carrossel de cada produto começa por uma foto sorteada (as outras seguem a ordem da lista) */
+P.forEach(p => {
+  if (!Array.isArray(p.fotos) || p.fotos.length < 2) return;
+  const k = Math.floor(Math.random() * p.fotos.length);
+  p.fotos = p.fotos.slice(k).concat(p.fotos.slice(0, k));
+});
 
 /* ---------- utilitários ---------- */
 const $ = (s, r = document) => r.querySelector(s);
