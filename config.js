@@ -193,12 +193,73 @@ window.DM_CONFIG = {
           "No nosso Grupo VIP você recebe todos os dias fotos de novas joias, vê os lançamentos antes de todo mundo e tira dúvidas direto com a nossa equipe. Faça parte entrando agora mesmo pelo nosso {WhatsApp}."
         ],
         whatsappMensagem: "Olá, gostaria de saber mais sobre as joias"
+      },
+      contato: {
+        titulo: "Fale conosco",
+        paragrafos: [
+          "Estamos aqui para ajudar você em cada etapa: escolher a joia, acompanhar o pedido, tirar dúvidas sobre medidas ou encontrar o presente ideal. O nosso atendimento funciona de segunda a sexta, das 9h às 17h, e cada mensagem é respondida com carinho e atenção.",
+          "Se preferir, escreva para contato@dmarrie.store e, se a dúvida for sobre uma compra, informe o número do pedido. Mensagens recebidas fora do horário de atendimento são respondidas no próximo dia útil, sempre por alguém da nossa equipe.",
+          "Para um atendimento mais rápido e personalizado, fale com a gente agora mesmo pelo nosso {WhatsApp}."
+        ],
+        whatsappMensagem: "Olá, gostaria de saber mais sobre as joias"
+      },
+      frete: {
+        titulo: "Frete e pagamento",
+        paragrafos: [
+          "Enviamos para todo o Brasil, com todo o cuidado na embalagem e frete grátis nas compras acima de R$ 349. O valor e o prazo de entrega são informados antes de você finalizar o pedido, e o código de rastreio é enviado assim que a encomenda é postada.",
+          "Aceitamos os cartões Visa, Mastercard, Elo, Amex e Hipercard em até 6 vezes sem juros, e o Pix com 5% de desconto. Na primeira compra, use o cupom DMARRIE10 e ganhe 10% de desconto. O preço no Pix e o valor de cada parcela já aparecem na página de cada joia.",
+          "Para mais informações sobre frete e pagamento, fale com a gente pelo nosso {WhatsApp}."
+        ],
+        whatsappMensagem: "Olá, gostaria de saber mais sobre as joias"
+      },
+      trocas: {
+        titulo: "Trocas e devoluções",
+        paragrafos: [
+          "Pelo Código de Defesa do Consumidor, nas compras feitas pela internet você tem 7 dias corridos, a partir do recebimento, para desistir da compra. Nesse caso devolvemos o valor pago integralmente, incluindo o frete. É só nos avisar dentro desse prazo para combinarmos a devolução.",
+          "Quer trocar o tamanho ou o modelo? A joia precisa estar sem sinais de uso, na embalagem original e com todos os acessórios que a acompanham. Se a peça tiver algum defeito, ela é coberta pela nossa garantia de 90 dias.",
+          "Para solicitar uma troca ou devolução, ou tirar dúvidas, fale com a gente pelo nosso {WhatsApp}."
+        ],
+        whatsappMensagem: "Olá, gostaria de saber mais sobre as joias"
+      },
+      cuidados: {
+        titulo: "Cuidados com as joias",
+        paragrafos: [
+          "Alguns cuidados simples mantêm as suas joias D'marrie sempre bonitas e brilhantes. Coloque as peças por último, depois de se arrumar e de aplicar perfume e cremes, e retire-as para dormir, tomar banho, ir à praia ou à piscina e fazer exercícios.",
+          "Guarde cada peça separada, em um saquinho ou caixinha fechada, em um local seco. Para limpar, passe uma flanela macia e seca depois de usar, e trate as pedras com delicadeza, sem atrito. Para um brilho extra, use de vez em quando uma flanela própria para joias de prata.",
+          "Para mais dicas de cuidado e limpeza, fale com a gente pelo nosso {WhatsApp}."
+        ],
+        whatsappMensagem: "Olá, gostaria de saber mais sobre as joias"
+      },
+      faq: {
+        titulo: "Perguntas frequentes",
+        paragrafos: [
+          "As joias são de prata? Sim, as nossas peças são feitas em prata sterling 925. Como mantenho o brilho? Siga as dicas de Cuidados com as joias, aqui no rodapé. Posso parcelar? Sim, em até 6x sem juros no cartão de crédito.",
+          "Qual é o prazo de entrega? O prazo depende do seu CEP e aparece antes de você finalizar a compra. Como descubro o meu aro? Veja o nosso Guia de aros, aqui no rodapé. Vocês enviam para todo o Brasil? Sim, para todas as regiões, com frete grátis acima de R$ 349. Posso trocar? Sim, veja Trocas e devoluções.",
+          "Não encontrou a sua dúvida? Fale com a gente pelo nosso {WhatsApp}."
+        ],
+        whatsappMensagem: "Olá, gostaria de saber mais sobre as joias"
+      },
+      aros: {
+        titulo: "Guia de aros",
+        paragrafos: [
+          "Para descobrir o seu aro, passe uma tira de papel em volta do dedo, marque onde ela se encontra e meça o comprimento em milímetros. Subtraia 40 desse valor: 52 mm é o aro 12, 54 mm o aro 14, 56 mm o aro 16, e assim por diante. Confira repetindo a medida duas vezes.",
+          "Meça no fim do dia, quando os dedos estão um pouco mais inchados, e se ficar entre dois aros escolha o maior. Você também pode medir por dentro um anel que já serve bem. Trabalhamos com aros do 12 ao 20, e nas alianças até o aro 24.",
+          "Ficou com dúvida na medida ou quer ajuda para escolher? Fale com a gente pelo nosso {WhatsApp}."
+        ],
+        whatsappMensagem: "Olá, gostaria de saber mais sobre as joias"
       }
     },
     colunas: [
       { titulo: "Institucional", links: [{ texto: "Sobre nós", abre: "sobre" }, { texto: "Política de privacidade", abre: "privacidade" }, { texto: "Garantia", abre: "garantia" }, { texto: "Grupo VIP", abre: "vip" }] },
       { titulo: "Sua conta",     links: ["Minha conta", "Meus pedidos", "Favoritos", "Sacola"] },
-      { titulo: "Dúvidas",       links: ["Fale conosco", "Frete e pagamento", "Trocas e devoluções", "Cuidados com as joias", "Perguntas frequentes", "Guia de aros"] }
+      { titulo: "Dúvidas",       links: [
+        { texto: "Fale conosco", abre: "contato" },
+        { texto: "Frete e pagamento", abre: "frete" },
+        { texto: "Trocas e devoluções", abre: "trocas" },
+        { texto: "Cuidados com as joias", abre: "cuidados" },
+        { texto: "Perguntas frequentes", abre: "faq" },
+        { texto: "Guia de aros", abre: "aros" }
+      ] }
     ],
     pagamentos: ["Visa", "Mastercard", "Elo", "Amex", "Hipercard", "Pix"],
     selos: [{ icone: "shield", texto: "Compra segura" }, { icone: "star", texto: "Avaliações de clientes" }]
