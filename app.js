@@ -259,6 +259,7 @@ $$('[data-prod-rail]').forEach(root => {
   link.href = url;
   link.textContent = ig.botao;
   $('#ftInsta').href = url;
+  if (user) $('#ftInstaUser').textContent = '@' + user;
   $('#igGrid').innerHTML = C.igGrade.map(g => '<div>' + (g.imagem ? '<img class="art cover" src="' + esc(g.imagem) + '" alt="">' : drawing(g.forma, g.tom)) + '</div>').join('');
   if (ig.fixo === false) $('#ig').hidden = true;
 })();

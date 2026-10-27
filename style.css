@@ -222,10 +222,14 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 /* ---------- rodapé ---------- */
 .ft{padding-block:60px 28px;border-top:1px solid var(--line)}
 .ft-grid{display:grid;grid-template-columns:1.1fr 1fr 1fr 1.2fr;gap:36px}
-.ft-brand .logo-mark{width:200px}
+.ft-brand .logo-mark{width:200px;aspect-ratio:var(--ar-hdr);-webkit-mask-image:var(--logo-hdr);mask-image:var(--logo-hdr)}
 .ft-brand p{margin-top:16px;max-width:30ch;color:var(--ink-2);font-size:14px}
-.soc{display:inline-grid;place-items:center;width:46px;height:46px;border:1px dashed var(--ink-2);border-radius:50%;margin-top:18px;transition:background .2s}
-.soc:hover{background:var(--fog)}
+/* Instagram do rodapé: símbolo pulsando (1 → 1,25 → 1 a cada 2 s) com o @ da loja ao lado */
+.soc-link{display:inline-flex;align-items:center;gap:14px;margin-top:18px;font-weight:600;letter-spacing:.02em;color:var(--ink)}
+.soc-link:hover #ftInstaUser{text-decoration:underline;text-underline-offset:3px}
+.soc{display:inline-grid;place-items:center;width:46px;height:46px;border:1px dashed var(--ink-2);border-radius:50%;transition:background .2s;animation:pulsa 2s ease-in-out infinite}
+.soc-link:hover .soc{background:var(--fog)}
+@keyframes pulsa{0%,100%{transform:scale(1)}50%{transform:scale(1.25)}}
 .ft summary{list-style:none;display:flex;justify-content:space-between;align-items:center;font-size:12.5px;letter-spacing:.18em;text-transform:uppercase;font-weight:700;margin-bottom:14px}
 .ft summary::-webkit-details-marker{display:none}
 .ft summary .ic{display:none;width:16px;height:16px}
