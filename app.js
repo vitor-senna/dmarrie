@@ -299,12 +299,29 @@ $$('[data-prod-rail]').forEach(root => {
 
 /* ---------- rodapé ---------- */
 (function footer() {
+  const link = l => typeof l === 'string' ? '<a href="#">' + esc(l) + '</a>'
+    : '<a href="#" data-open="' + esc(l.abre) + '">' + esc(l.texto) + '</a>';
   const col = c => '<details open><summary>' + esc(c.titulo) + icon('chev') + '</summary><ul>' +
-    c.links.map(l => '<li><a href="#">' + esc(l) + '</a></li>').join('') + '</ul></details>';
+    c.links.map(l => '<li>' + link(l) + '</li>').join('') + '</ul></details>';
   $('#ftCols1').innerHTML = C.rodape.colunas.slice(0, 2).map(col).join('');
   $('#ftCols2').innerHTML = C.rodape.colunas.slice(2).map(col).join('');
   $('#pay').innerHTML = C.rodape.pagamentos.map(t => '<span>' + esc(t) + '</span>').join('');
   $('#seals').innerHTML = C.rodape.selos.map(s => '<span class="seal">' + icon(s.icone) + esc(s.texto) + '</span>').join('');
+
+  /* janelas do rodapé (Sobre nós, Política de privacidade...): uma por item de C.rodape.janelas.
+     {WhatsApp} vira o link para a conversa com a mensagem pronta; {logo} no título vira o logo */
+  const waNum = encodeURIComponent(C.contato.whatsapp.replace(/\D/g, ''));
+  document.body.insertAdjacentHTML('beforeend', Object.keys(C.rodape.janelas).map(id => {
+    const j = C.rodape.janelas[id];
+    const wa = 'https://api.whatsapp.com/send?phone=' + waNum + (j.whatsappMensagem ? '&text=' + encodeURIComponent(j.whatsappMensagem) : '');
+    const waLink = '<a class="info-wa" href="' + esc(wa) + '" target="_blank" rel="noopener noreferrer">WhatsApp</a>';
+    return '<div class="layer" id="' + esc(id) + '" hidden><div class="scrim" data-close></div>' +
+      '<div class="panel modal sm info" role="dialog" aria-modal="true" aria-labelledby="' + esc(id) + 'T">' +
+      '<button class="icon-btn modal-x" type="button" data-close aria-label="Fechar">' + icon('close') + '</button>' +
+      '<h2 id="' + esc(id) + 'T">' + esc(j.titulo).replace('{logo}', '<span class="logo-mark" role="img" aria-label="' + esc(C.loja.nome) + '"></span>') + '</h2>' +
+      '<div class="info-txt">' + j.paragrafos.map(t => '<p>' + esc(t).replace('{WhatsApp}', waLink) + '</p>').join('') + '</div>' +
+      '</div></div>';
+  }).join(''));
 
   /* no celular as colunas viram acordeão */
   const desktop = window.matchMedia('(min-width:701px)');

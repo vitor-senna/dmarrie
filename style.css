@@ -349,6 +349,13 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .fld input{background:none;border:0;border-bottom:1.5px solid var(--ink-2);padding:10px 0;font:inherit;color:inherit;outline:0}
 .fld input:focus{border-color:var(--thread);box-shadow:0 1.5px 0 var(--thread)}
 .modal.sm h2{font:italic 500 30px/1.15 var(--font-display);margin-bottom:6px}
+.modal.info{width:min(520px,calc(100% - 32px))}
+/* janelas do rodapé: título (com o logo D'marrie quando houver {logo}), texto e link do WhatsApp */
+.info h2{display:flex;flex-wrap:wrap;align-items:flex-end;gap:4px 12px;padding-right:36px}
+.info h2 .logo-mark{width:170px;aspect-ratio:var(--ar-hdr);-webkit-mask-image:var(--logo-hdr);mask-image:var(--logo-hdr);margin-bottom:-2px}
+.info-txt p{margin-top:14px;line-height:1.65;color:var(--ink-2)}
+.info-wa{color:var(--thread);font-weight:700;text-decoration:underline;text-underline-offset:3px}
+.info-wa:hover{text-decoration-thickness:2px}
 .modal.sm .lead{color:var(--ink-2);margin-bottom:22px}
 .modal.sm .btn-solid{width:100%}
 .coupon{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:18px 0;padding:14px 16px;border:2px dashed var(--thread);font-weight:700;letter-spacing:.2em;font-size:18px;user-select:all}
@@ -399,6 +406,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
   .ft details ul{margin-bottom:18px}
   .ft-row{flex-direction:column}
   .rail-track{--per:1;--gap:12px}
+  .info h2 .logo-mark{width:140px}
   .prod-track{--per:2}
   .prod-arrow{width:44px;height:44px}
   .prod-arrow .ic{width:22px;height:22px}

@@ -153,8 +153,50 @@ window.DM_CONFIG = {
 
   /* ---------- 9. RODAPÉ ---------- */
   rodape: {
+    /* links: texto simples, ou { texto, abre } para abrir uma janela (ex.: abre: "sobre" abre o Sobre nós abaixo) */
+    /* janelas abertas pelos links do rodapé (abre: "sobre" abre janelas.sobre, e assim por diante).
+       Cada item de  paragrafos  é um parágrafo; {WhatsApp} vira o link sublinhado para a conversa no WhatsApp
+       da loja (número do bloco de contato), já com a  whatsappMensagem  escrita; no título, {logo} vira o logo */
+    janelas: {
+      sobre: {
+        titulo: "Sobre a {logo}",
+        paragrafos: [
+          "Há mais de 10 anos a D'marrie se dedica às joias feitas com pedras preciosas, prata sterling e design exclusivo, escolhendo cada peça com o cuidado de quem sabe que uma joia guarda histórias e marca momentos.",
+          "Atendemos clientes de todo o Brasil e também do exterior, levando até você peças delicadas, de acabamento impecável, feitas para acompanhar o seu dia a dia e as suas datas especiais.",
+          "Quer conhecer melhor a nossa loja? Venha fazer parte do nosso Grupo VIP, onde postamos diariamente fotos das nossas joias, novidades e lançamentos em primeira mão. Tudo isso você encontra no {WhatsApp}."
+        ],
+        whatsappMensagem: "Olá, gostaria de saber mais sobre as joias"
+      },
+      privacidade: {
+        titulo: "Política de privacidade",
+        paragrafos: [
+          "A D'marrie trata seus dados pessoais de acordo com a LGPD (Lei 13.709/2018). Coletamos apenas o necessário, como nome, contato e endereço, para processar pedidos, entregas e atendimento, e só enviamos novidades com o seu consentimento.",
+          "Não vendemos seus dados: eles são compartilhados só com parceiros essenciais, como pagamento e transporte, e guardados com segurança apenas pelo tempo exigido em lei. Como titular, você pode pedir acesso, correção, portabilidade ou exclusão dos seus dados e revogar o consentimento a qualquer momento.",
+          "Para saber mais entre em contato com o nosso {WhatsApp}."
+        ],
+        whatsappMensagem: "Olá, gostaria de saber mais sobre as joias"
+      },
+      garantia: {
+        titulo: "Garantia",
+        paragrafos: [
+          "Todas as joias D'marrie têm a garantia legal do Código de Defesa do Consumidor (Lei 8.078/1990): 90 dias para reclamar de defeitos, por serem produtos duráveis. No defeito oculto, o prazo de 90 dias só começa a contar quando ele aparecer.",
+          "Constatado o defeito, temos até 30 dias para resolver. Se não resolvermos, você escolhe entre a troca por outra peça igual, a devolução imediata do valor pago, com correção, ou o abatimento proporcional no preço. Danos causados por mau uso, quedas ou contato com produtos químicos não são cobertos.",
+          "Para saber mais entre em contato com o nosso {WhatsApp}."
+        ],
+        whatsappMensagem: "Olá, gostaria de saber mais sobre as joias"
+      },
+      vip: {
+        titulo: "Grupo VIP {logo}",
+        paragrafos: [
+          "Na D'marrie, cada joia nasce de uma curadoria cuidadosa: escolhemos pedras de cores vivas, prata sterling de qualidade e um design exclusivo, para criar peças delicadas que combinam com você em qualquer ocasião.",
+          "Mais do que vender joias, gostamos de estar perto de quem as usa: ajudamos a escolher o presente certo, a peça que faltava na sua coleção e a combinação perfeita para cada momento.",
+          "No nosso Grupo VIP você recebe todos os dias fotos de novas joias, vê os lançamentos antes de todo mundo e tira dúvidas direto com a nossa equipe. Faça parte entrando agora mesmo pelo nosso {WhatsApp}."
+        ],
+        whatsappMensagem: "Olá, gostaria de saber mais sobre as joias"
+      }
+    },
     colunas: [
-      { titulo: "Institucional", links: ["Sobre nós", "Política de privacidade", "Garantia", "Grupo VIP"] },
+      { titulo: "Institucional", links: [{ texto: "Sobre nós", abre: "sobre" }, { texto: "Política de privacidade", abre: "privacidade" }, { texto: "Garantia", abre: "garantia" }, { texto: "Grupo VIP", abre: "vip" }] },
       { titulo: "Sua conta",     links: ["Minha conta", "Meus pedidos", "Favoritos", "Sacola"] },
       { titulo: "Dúvidas",       links: ["Fale conosco", "Frete e pagamento", "Trocas e devoluções", "Cuidados com as joias", "Perguntas frequentes", "Guia de aros"] }
     ],
